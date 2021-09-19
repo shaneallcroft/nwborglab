@@ -1,28 +1,26 @@
-* Hardware Configuration
-** Devices
-*** cyton
-**** config
-***** ip port
-***** 
-***** 
-***** 
-***** 
-***** 
-***** 
-**** data type
-     EEG
-**** channel count
-    8
-**** misc
-    medium
-    it is so cool, it is very cool, oh yeah
-*** electrode groups
-**** ultracortex
-***** 1
-***** 2
-***** 3
-***** 4
-***** 5
-***** 6
-***** 7
-***** 8
+* data type
+  EEG
+* channel count
+* electrode config
+** 1
+** 2
+** 3
+** 4
+** 5
+** 6
+** 7
+** 8  
+* python statements
+** initial
+#+BEGIN_SRC python  
+#+END_SRC       
+** loop
+#+BEGIN_SRC python  
+#+END_SRC       
+** terminal
+#+BEGIN_SRC python  
+#+END_SRC       
+
+* other notes
+  - medium size
+  - it is so cool, it is very cool, oh yeah

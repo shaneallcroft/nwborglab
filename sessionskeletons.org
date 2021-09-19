@@ -4,9 +4,16 @@
 **** stimuli
 **** sensors
 **** other notes
-** loop init
-** loop cycle
-** survey
+** python statements
+*** initial
+#+BEGIN_SRC python  
+#+END_SRC       
+*** loop
+#+BEGIN_SRC python  
+#+END_SRC       
+*** terminal
+#+BEGIN_SRC python  
+#+END_SRC       
 * Test1
 ** subject roles
 *** viewer
