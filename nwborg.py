@@ -23,7 +23,7 @@ CYTON_BOARD = 0
 
 
 class NwborgExperiment (object):
-    def __init__ (self, project_path): # actual argument should be a path to the nwborg project folder and that's it
+    def __init__ (self, experiment_path): # actual argument should be a path to the nwborg experiment folder and that's it
         # read in stuff necessary to make self.nwb_file
         # then (maybe recursively) iterate over the rest of the thing paying attention to tags
         self.overviewOrg = None
@@ -31,10 +31,11 @@ class NwborgExperiment (object):
         self.sessionSkeletons = None
         
         # first read in the baseline NWB function
-        for filename in os.listdir(project_path):
+        for filename in os.listdir(experiment_path):
             if filename.endswith('overview.org'):
                 # bingo, read in the org as a dictionary
-                self.overviewOrg = orgutils.orgToDict(filename=os.path.join(project_path, filename))        
+                self.overviewOrg = orgutils.orgToDict(filename=os.path.join(experiment_path, filename))
+            else
         self.sessionSkeletons = self.overviewOrg['Session Skeletons']
         
 

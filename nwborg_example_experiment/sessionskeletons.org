@@ -1,0 +1,16 @@
+* Calibration
+** subject roles
+*** viewer
+**** stimuli
+**** sensors
+**** other notes
+** loop init   
+** loop cycle
+* Test1
+** subject roles
+*** viewer
+**** stimuli
+**** sensors
+**** other notes
+** loop init
+** loop cycle
