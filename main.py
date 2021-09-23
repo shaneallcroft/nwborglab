@@ -18,9 +18,30 @@ def main():
     
     if command == 'init':
         initHandler.init(command_args)
+
+    if command == 'schedule':
+        scheduleHandler(command_args)
+        
+    if command == 'assign':
+        assignHandler(command_args)
+
+    if command == 'subject':
+        subjectMain(command_args)
+
+    if command == 'session':
+        sessionHandler(command_args)
+
+
+
+        
+
+        
     
     print(command)
     print(command_args)
+    
 
+
+    
 if __name__ == '__main__':
     main()

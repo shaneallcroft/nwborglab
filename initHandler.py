@@ -40,7 +40,7 @@ def init(args):
     # TODO fill out the .nwborg
     if not os.path.isfile('.nwb.org'):
         with open('.nwb.org', 'w') as f:
-            f.write('nwborg experiment first initialized ' + str(dt.now()) + '\n')
+            f.write('nwb first initialized ' + str(dt.now()) + '\n')
         
 
     # overview.org
@@ -60,43 +60,42 @@ def init(args):
         print('generating sessionskeletons.org...')
         with open('sessionskeletons.org', 'w') as sessionSkeletons:
             sessionSkeletons.write('* example skeleton\n')
-            sessionSkeletons.write('* subject sensor map\n')
-            sessionSkeletons.write('* Lab\n')
-            sessionSkeletons.write('* Institution\n')
+            sessionSkeletons.write('** subject roles\n')
+            sessionSkeletons.write('*** example role\n')
+            sessionSkeletons.write('**** stimuli\n')
+            sessionSkeletons.write('**** sensors\n')
+            sessionSkeletons.write('**** other notes\n')
+            sessionSkeletons.write('**** survey\n')
         print('complete.')
     else:
         print('found sessionSkeletons.org...')
 
     
     # make directories if necessary
-    if not os.path.isfile('subjects'):
+    if not os.path.isdir('subjects'):
         print('creating subjects directory...')
         os.mkdir('subjects')
         print('complete.')
     else:
         print('subjects directory found')
 
-    if not os.path.isfile('sensors'):
+    if not os.path.isdir('sensors'):
         print('creating sensors directory...')
         os.mkdir('sensors')
         print('complete.')
     else:        
         print('sensors directory found')
         
-    if not os.path.isfile('stimuli'):
+    if not os.path.isdir('stimuli'):
         print('creating stimuli directory...')
         os.mkdir('stimuli')
         print('complete.')
     else:
         print('stimuli directory found')
         
-    if not os.path.isfile('sessions'):
+    if not os.path.isdir('sessions'):
         print('creating sessions directory...')
         os.mkdir('sessions')
         print('complete.')
     else:
         print('sessions directory found')
-
-    
-    
- 
