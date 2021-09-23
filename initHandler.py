@@ -70,7 +70,10 @@ def init(args):
     else:
         print('found sessionSkeletons.org...')
 
-    
+
+
+    # TODO make .nwb.org in each subdirectory
+    # and make root path a variable accessible in the project no matter where you are at
     # make directories if necessary
     if not os.path.isdir('subjects'):
         print('creating subjects directory...')

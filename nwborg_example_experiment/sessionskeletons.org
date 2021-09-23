@@ -4,9 +4,10 @@
 **** stimuli
 **** sensors
 **** other notes
+**** survey
 ** loop init
 ** loop cycle
-** survey
+
 * Test1
 ** subject roles
 *** viewer

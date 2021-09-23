@@ -1,6 +1,7 @@
 * data type
   EEG
 * channel count
+  8
 * electrode config
 ** 1
 ** 2
@@ -10,7 +11,7 @@
 ** 6
 ** 7
 ** 8  
-* python statements
+* python statements 
 ** initial
 #+BEGIN_SRC python  
 #+END_SRC       
