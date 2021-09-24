@@ -1,5 +1,5 @@
 import os
-import orgutils
+from orgutils import orgutils
 from datetime import datetime as dt
 
 def createSubject(args):
@@ -9,7 +9,7 @@ def createSubject(args):
         return
     
     print('Create Subject!')
-    subject_id = input('please input the subject\'s ID, or press enter to autogenerate a new ID')
+    subject_id = input('Please input the subject\'s ID, or press enter to autogenerate a new ID')
     if subject_id == '':
         subject_files = os.listdir('subjects')
         largest_id = 0
@@ -17,7 +17,7 @@ def createSubject(args):
             subject_num = int(subject_file[:-4])
             if subject_num > largest_id:
                 largest_id = subject_num
-        new_id = subject_num + 1
+        new_id = largest_id + 1
         preceding_zeroes = ''
         if new_id < 1000:
             preceding_zeroes += '0'

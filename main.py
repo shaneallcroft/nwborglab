@@ -1,5 +1,8 @@
 import argparse
 import initHandler
+import subjectHandler
+import sessionHandler
+
 
 def main():
     parser = argparse.ArgumentParser('Takes in parameters for nwborg to run')
@@ -26,10 +29,10 @@ def main():
         assignHandler(command_args)
 
     if command == 'subject':
-        subjectMain(command_args)
+        subjectHandler.createSubject(command_args)
 
     if command == 'session':
-        sessionHandler(command_args)
+        sessionHandler.instantiateSession(command_args)
 
 
 

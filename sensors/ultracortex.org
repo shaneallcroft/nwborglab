@@ -1,0 +1,40 @@
+* data type
+  EEG
+* channel count
+  8
+* electrode config
+** 1
+   FP0
+** 2
+   FP1
+** 3
+   FP5
+** 4
+   FP6
+** 5
+   FP7
+** 6
+   FP8
+** 7
+   FP9
+** 8
+   FP10
+* programmatic
+** initial
+#+BEGIN_SRC python
+  print('hello from inside ultracortex.org initial')
+#+END_SRC       
+** loop
+#+BEGIN_SRC python
+  print('hello from inside ultracortex.org loop')
+#+END_SRC       
+** terminal
+#+BEGIN_SRC python
+  a = input('input your favorite number between 1-10')
+  if a == 4:
+      print('epic')
+      print('hello from inside ultracortex.org terminal')
+#+END_SRC       
+* other notes
+  - medium size
+  - it is so cool, it is very cool, oh yeah

@@ -47,10 +47,10 @@ def init(args):
     if not os.path.isfile('overview.org'):
         print('generating overview.org...')
         with open('overview.org', 'w') as overview:
-            overview.write('* Experiment Abstract\n')
-            overview.write('* Experimenter\n')
-            overview.write('* Lab\n')
-            overview.write('* Institution\n')
+            overview.write('* experiment abstract\n')
+            overview.write('* experimenter\n')
+            overview.write('* lab\n')
+            overview.write('* institution\n')
         print('complete.')
     else:
         print('found overview.org...')
@@ -102,3 +102,10 @@ def init(args):
         print('complete.')
     else:
         print('sessions directory found')
+
+    if not os.path.isdir('src'):
+        print('creating src directory...')
+        os.mkdir('src')
+        print('complete.')
+    else:
+        print('src directory found')
