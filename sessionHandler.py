@@ -80,8 +80,8 @@ def instantiateSession(args):
         f.write(tab+"skeleton = orgutils.orgToDict(filename=sessionskeletons.org)['" + session_archetype + "']\n")
         f.write(tab+"nwbfile = NWBFile(session_description=skeleton['description'],identifier='"+str(session_id)+"',session_start_time=datetime.now(),file_create_date=datetime.today())\n")
         f.write(tab+"parser = argparse.ArgumentParser('Default parser generated automatically by nwborg')\n")
-        f.write('session_dict = orgutils.orgToDict(filename=session.org)\n')
-        f.write("session_id = session_dict['session id']") # There's going to be light debugging here at some point
+        f.write(tab+'session_dict = orgutils.orgToDict(filename=session.org)\n')
+        f.write(tab+"session_id = session_dict['session id']\n") # There's going to be light debugging here at some point
         # pick it up
         
         
@@ -119,7 +119,7 @@ def instantiateSession(args):
             f.write(tab * 2 + half_tab + statement+'\n')
 
         f.write(tab + 'except:\n')
-        f.write(tab * 2 + 'print("recording complete"):\n')
+        f.write(tab * 2 + 'print("recording complete")\n')
         for role in hardware_used.keys():
             print('initializing sensors for the ' + role + '...')
             #for sensor in hardware_used[role]:

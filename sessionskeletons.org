@@ -1,4 +1,6 @@
 * calibration
+** description
+   really cool
 ** subject roles
 *** viewer
 **** stimuli
@@ -12,6 +14,8 @@
 ** programmatic
 *** initial
 #+BEGIN_SRC python
+  # ACTUAL TODO add survey about DEAPU
+  # ACTUAL TODO add / look into adding nwb processing modules
   print('hello from skeleton initial')
 #+END_SRC       
 *** loop
@@ -20,5 +24,6 @@
 #+END_SRC       
 *** terminal
 #+BEGIN_SRC python
+  print('Begin post session survey')
   print('hello from skeleton terminal')
 #+END_SRC       

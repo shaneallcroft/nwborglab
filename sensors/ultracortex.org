@@ -60,7 +60,7 @@
   import time
   import pynwb
   from pynwb import TimeSeries
-  from discrete_wavelet_transform_test
+  #from discrete_wavelet_transform_test
   from pynwb.ecephys import ElectricalSeries
   CYTON_BOARD = 0
   
@@ -132,7 +132,7 @@
   board.stop_stream()
   board.release_session()
   # ACTUAL TODO move what you can of this parameters into orgutils parsing this file
-  eeg_ts = TimeSeries(name='ultracortex eeg data',data=eeg_ts_raw,unit'v',starting_time=0.0,rate=250.0)
+  eeg_ts = TimeSeries(name='ultracortex eeg data',data=eeg_ts_raw,unit='v',starting_time=0.0,rate=250.0)
   nwbfile.add_acquisition(eeg_ts)
   with NWBHDF5IO(str(session_id) + '.nwb', 'w') as io:
       io.write(nwbfile)
