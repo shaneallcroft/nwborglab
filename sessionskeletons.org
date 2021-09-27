@@ -27,3 +27,10 @@
   print('Begin post session survey')
   print('hello from skeleton terminal')
 #+END_SRC       
+* test
+** programmatic
+*** initial
+#+BEGIN_SRC python
+parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
+		      required=False, default='/home/shaneallcroft/.local/share/dolphin-emu/Pipes/pipe1')
+#+END_SRC

@@ -56,7 +56,6 @@
   import brainflow as bf
   from brainflow.board_shim import BoardShim, BrainFlowInputParams
   from brainflow.data_filter import DataFilter, FilterTypes, AggOperations
-  import argparse
   import time
   import pynwb
   from pynwb import TimeSeries
@@ -65,19 +64,20 @@
   CYTON_BOARD = 0
   
   cyton_board = nwbfile.create_device(name='cyton_board')
-  ultracortex_config = orgutils.orgToDict(filename='sensors/ultracortex.org')
+  ultracortex_config = orgutils.orgToDict(filename=nwborg_root_path+'sensors/ultracortex.org')
   ultracortex_description = ultracortex_config['description']
   
   electrode_group = nwbfile.create_electrode_group('ultracortex',description=ultracortex_description,location="worn on the user's head",device=cyton_board)
   
+  idx = 0
   for electrode in ultracortex_config['electrode config'].keys():
-      electrode_description = ultracortex_config[electrode]['description']
-      electrode_location = ultracortex_config[electrode]['location']
-      nwbfile.add_electrode(id=int(electrode), location=electrode_location, filtering='none',group=electrode_group)
+      idx += 1
+      electrode_description = ultracortex_config['electrode config'][electrode]['description']
+      electrode_location = ultracortex_config['electrode config'][electrode]['location']
+      nwbfile.add_electrode(id=int(electrode), location=electrode_location, filtering='none',group=electrode_group,x=0.0,y=0.0,z=0.0,imp=float(idx))
   print('hello from inside ultracortex.org initial')
       # arg parse stuff
   # ACTUAL TODO move what you can of this argparse shit into parsing this file
-  parser = argparse.ArgumentParser('Takes in parameters of the input')
   parser.add_argument('--timeout', type=int, help='timeout for device discovery or connection'
 			, default=0)
   parser.add_argument('--ip-port', type=int, help='ip port', required=False, default=0)
@@ -88,8 +88,6 @@
   parser.add_argument('--streamer-params', type=str, help='streamer params', required=False, default='')
   parser.add_argument('--serial-number', type=str, help='serial number', required=False, default='')
   parser.add_argument('--file', type=str, help='file', required=False, default='')
-  parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
-		      required=False, default='/home/shaneallcroft/.local/share/dolphin-emu/Pipes/pipe1')
   parser.add_argument('--sample-frequency', type=float, help='how many times per second to sample',
 		      default=1.0)
   
@@ -107,7 +105,7 @@
   params.file = args.file
   
   # read other variables in from args
-  pipe_path = args.pipe_path # for the controller
+  #pipe_path = args.pipe_path # for the controller
   sleep_time = 1.0/float(args.sample_frequency)
   board = BoardShim(CYTON_BOARD, params)
   board.prepare_session()
@@ -126,6 +124,9 @@
   eeg_data = board.get_board_data()
   eeg_ts_raw.append(eeg_data)
   print('hello from inside ultracortex.org loop')
+  print(eeg_data)
+  time.sleep(0.5)
+  
 #+END_SRC       
 ** terminal
 #+BEGIN_SRC python
@@ -134,8 +135,6 @@
   # ACTUAL TODO move what you can of this parameters into orgutils parsing this file
   eeg_ts = TimeSeries(name='ultracortex eeg data',data=eeg_ts_raw,unit='v',starting_time=0.0,rate=250.0)
   nwbfile.add_acquisition(eeg_ts)
-  with NWBHDF5IO(str(session_id) + '.nwb', 'w') as io:
-      io.write(nwbfile)
   a = input('input your favorite number between 1-10')
   if a == 4:
       print('epic')
