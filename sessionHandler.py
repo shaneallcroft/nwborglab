@@ -2,7 +2,7 @@ import os
 from orgutils import orgutils
 from datetime import datetime as dt
 
-def instantiateSession(args):
+def scheduleSession(args):
     if not os.path.isfile('.nwb.org'):
         print('NWBORG ERROR: not in the uppermost folder of an nwborg project.')
         return
@@ -15,7 +15,6 @@ def instantiateSession(args):
         subject_id = input('Please enter a subject id to fill the role of ' + str(role) + ' in this session...')
         print('Proceeding with subject id ' + subject_id + ' filling the roll of ' + role + '...')
         # ACTUAL TODO error handling for input here
-        skeleton[role] = dict()
         skeleton['subject roles'][role]['subject id'] = subject_id
                 
     if not os.path.isdir('sessions/' + session_archetype):
@@ -23,7 +22,7 @@ def instantiateSession(args):
         os.mkdir('sessions/' + session_archetype)
         print('complete.')
 
-    session_id = input('Please input the session\'s ID, or press enter to autogenerate a new ID')
+    session_id = input('Please input the session\'s ID, or press enter to autogenerate a new ID...')
     if session_id == '':
         session_files = os.listdir('sessions/' + session_archetype)
         largest_id = 0
@@ -66,7 +65,32 @@ def instantiateSession(args):
         # ^^^^ Also you can probably just keep track of this better by seeing where orgutils is opening org files.
         # ^^^^ Better yet maybe orgutils feature incoming?
         
-        
+
+
+
+
+
+
+def generateSessionCode(args):
+    session_skeletons = orgutils.orgToDict(filename='sessionskeletons.org')
+    print('args:', args)
+    session_archetype = args[0]
+    skeleton = session_skeletons[session_archetype]
+
+    session_dict = dict()
+    session_dict['subject roles'] = skeleton['subject roles']
+
+
+    # Read in the hardware configs for the sensors pertaining to the different roles
+    hardware_used = dict()
+    sensor_files = set()
+    for role in session_dict['subject roles'].keys():
+        hardware_used[role] = session_dict['subject roles'][role]['sensors']
+        sensor_files.add(session_dict['subject roles'][role]['sensors']) # TODO add .split functionality for lists of sensors
+        # ^^^^ Also you can probably just keep track of this better by seeing where orgutils is opening org files.
+        # ^^^^ Better yet maybe orgutils feature incoming?
+
+    
     # source code generation 
     print(session_archetype + '/run.py not found... generating now....')
     tab = '    '
@@ -145,7 +169,7 @@ def instantiateSession(args):
             f.write(tab * 2 + half_tab + statement+'\n')
 
         f.write(tab + 'except:\n')
-        f.write(tab * 2 + 'print("recording complete")\n')
+        f.write(tab * 2 + 'print("\\nrecording complete")\n')
         for role in hardware_used.keys():
             print('initializing sensors for the ' + role + '...')
             #for sensor in hardware_used[role]:
@@ -166,3 +190,90 @@ def instantiateSession(args):
         # Make callable from terminal and add call to main
         f.write("if __name__ == '__main__':\n")
         f.write(tab + "main()\n")
+
+
+
+
+
+def quickstartSession(args, session_dict=None, subject_id_dict=None, session_id=None, marathon=False):
+    if not os.path.isfile('.nwb.org'):
+        print('NWBORG ERROR: not in the uppermost folder of an nwborg project.')
+        return
+    
+    session_skeletons = orgutils.orgToDict(filename='sessionskeletons.org')
+    print('args:', args)
+    session_archetype = args[0]
+    skeleton = session_skeletons[session_archetype]
+    for role in skeleton['subject roles'].keys():
+        if 'subject id' in skeleton['subject roles'][role].keys():
+            subject_id = skeleton['subject roles'][role]['subject id']
+            #ACTUAL TODO make sure its valid
+        if subject_id_dict != None and role in subject_id_dict.keys():
+            # subject id specified via passing in the argument
+            subject_id = subject_id_dict[role]
+        else:
+            subject_id = input('Please enter a subject id to fill the role of ' + str(role) + ' in this session...')
+        print('Proceeding with subject id ' + subject_id + ' filling the roll of ' + role + '...')
+        # ACTUAL TODO error handling for input here
+        skeleton['subject roles'][role]['subject id'] = subject_id
+                
+    if not os.path.isdir('sessions/' + session_archetype):
+        print('creating sessions directory...')
+        os.mkdir('sessions/' + session_archetype)
+        print('complete.')
+    if session_id == None:  # i.e. if session_id was not passed as a parameter to this function
+        session_id = input('Please input the session\'s ID, or press enter to autogenerate a new ID...')
+    if session_id == '':
+        session_files = os.listdir('sessions/' + session_archetype)
+        largest_id = 0
+        for session_file in session_files:
+            if '.' in session_file:
+                continue
+            session_num = int(session_file)
+            if session_num > largest_id:
+                largest_id = session_num
+        new_id = largest_id + 1
+        preceding_zeroes = ''
+        if new_id < 1000:
+            preceding_zeroes += '0'
+        if new_id < 100:
+            preceding_zeroes += '0'
+        if new_id < 10:
+            preceding_zeroes += '0'
+        session_id = preceding_zeroes + str(new_id)
+
+    if not os.path.isdir('sessions/' + session_archetype + '/' + session_id):
+        print('creating directory for session ' + session_id + '...')
+        os.mkdir('sessions/' + session_archetype + '/' + session_id)
+        print('complete.')
+
+    print('Proceeding with id ' + session_id + ' for session creation...')
+    if session_dict == None: # i.e. if session_dict was not passed as a parameter to this function
+        session_dict = dict()
+    session_dict['subject roles'] = skeleton['subject roles']
+
+    if not 'date' in session_dict.keys():
+        session_dict['date'] = dt.today()
+
+    if not 'session_supervisor' in session_dict.keys():
+        session_dict['session supervisor'] = input('Please input the name of the experimenter responsible for this session being recorded...')
+    orgutils.dictToOrg(org_data=session_dict,output_filename='sessions/' + session_archetype + '/' + session_id + '/session.org')
+    print('session info saved to sessions/' + session_archetype + '/' + session_id + '/' + 'session.org')
+
+    if not os.path.isfile('sessions/' + session_archetype + '/run.py'):
+        generateSessionCode(args)
+
+    # start session
+    os.system('python sessions/' + session_archetype + '/run.py --session-id ' + session_id)
+
+    if marathon:
+        print('Session complete!')
+        answer =input("Press 'enter' when you are ready to continue to the next session, or q to quit...")
+        if answer == 'q':
+            quit()
+        else:
+            quickstartSession(args,
+                              session_dict=session_dict,
+                              subject_id_dict=session_dict['subject roles'],
+                              marathon=True)
+            

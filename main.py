@@ -32,19 +32,19 @@ def main():
         subjectHandler.createSubject(command_args)
 
     if command == 'session':
-        sessionHandler.instantiateSession(command_args)
+        if command_args[0] == 'build':
+            sessionHandler.generateSessionCode(command_args[1:])
+        if command_args[0] == 'schedule':
+            sessionHandler.scheduleSession(command_args[1:])
+        if command_args[0] == 'start':
+            sessionHandler.quickstartSession(command_args[1:])
+        if command_args[0] == 'quickstart':
+            sessionHandler.quickstartSession(command_args[1:])
+        if command_args[0] == 'quickstartmarathon':
+            sessionHandler.quickstartSession(command_args[1:], marathon=True)
 
-
-
-        
-
-        
-    
     print(command)
     print(command_args)
-    
-
-
     
 if __name__ == '__main__':
     main()

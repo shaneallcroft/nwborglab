@@ -58,6 +58,7 @@
   from brainflow.data_filter import DataFilter, FilterTypes, AggOperations
   import time
   import pynwb
+  import numpy as np
   from pynwb import TimeSeries
   #from discrete_wavelet_transform_test
   from pynwb.ecephys import ElectricalSeries
@@ -117,28 +118,43 @@
   eeg_ts_raw = []
   # pick it up, make time series variable that all instances of eeg_data will be appended to during the loop
   
-  
 #+END_SRC       
 ** loop
 #+BEGIN_SRC python
   eeg_data = board.get_board_data()
-  eeg_ts_raw.append(eeg_data)
+  eeg_channels = BoardShim.get_eeg_channels(CYTON_BOARD)
+  
+  eeg_formatted = list()
+  for i in range(len(eeg_data[0])):
+      eeg_formatted.append(list())
+  i = 0
+  for data_buffer in eeg_data:
+      for idx in range(len(data_buffer)):  
+          eeg_formatted[idx].append(data_buffer[idx])
+      i += 1
+      if i >= 8:
+          break
   print('hello from inside ultracortex.org loop')
-  print(eeg_data)
+  for data_point in eeg_formatted:
+      eeg_ts_raw.append(data_point)
+  #print(eeg_data)
   time.sleep(0.5)
   
-#+END_SRC       
+#+END_SRC
 ** terminal
 #+BEGIN_SRC python
   board.stop_stream()
   board.release_session()
   # ACTUAL TODO move what you can of this parameters into orgutils parsing this file
-  eeg_ts = TimeSeries(name='ultracortex eeg data',data=eeg_ts_raw,unit='v',starting_time=0.0,rate=250.0)
+  electrode_table_region = nwbfile.create_electrode_table_region(list(range(0,len(ultracortex_config['electrode config'].keys()))), 'all of the ultracortex electrodes')
+  eeg_ts = ElectricalSeries('ultracortex eeg data',np.transpose(eeg_ts_raw),electrode_table_region,starting_time=0.0,rate=250.0,resolution=.001,comments='data read in from an ultracortex mark IV headset', description=skeleton['description'])
   nwbfile.add_acquisition(eeg_ts)
   a = input('input your favorite number between 1-10')
   if a == 4:
       print('epic')
       print('hello from inside ultracortex.org terminal')
+  
+  
 #+END_SRC       
 * dev notes
   - eeg_data is where the most recent read from the board is stored during the loop
