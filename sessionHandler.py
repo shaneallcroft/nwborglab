@@ -195,7 +195,7 @@ def generateSessionCode(args):
 
 
 
-def quickstartSession(args, session_dict=None, subject_id_dict=None, session_id=None, marathon=False):
+def quickstartSession(args, session_dict=None, subject_id_dict=None, session_id=None):
     if not os.path.isfile('.nwb.org'):
         print('NWBORG ERROR: not in the uppermost folder of an nwborg project.')
         return
@@ -210,9 +210,10 @@ def quickstartSession(args, session_dict=None, subject_id_dict=None, session_id=
             #ACTUAL TODO make sure its valid
         if subject_id_dict != None and role in subject_id_dict.keys():
             # subject id specified via passing in the argument
-            subject_id = subject_id_dict[role]
+            subject_id = subject_id_dict[role]['subject id']
         else:
             subject_id = input('Please enter a subject id to fill the role of ' + str(role) + ' in this session...')
+        print(subject_id)
         print('Proceeding with subject id ' + subject_id + ' filling the roll of ' + role + '...')
         # ACTUAL TODO error handling for input here
         skeleton['subject roles'][role]['subject id'] = subject_id
@@ -255,8 +256,9 @@ def quickstartSession(args, session_dict=None, subject_id_dict=None, session_id=
     if not 'date' in session_dict.keys():
         session_dict['date'] = dt.today()
 
-    if not 'session_supervisor' in session_dict.keys():
+    if not 'session supervisor' in session_dict.keys():
         session_dict['session supervisor'] = input('Please input the name of the experimenter responsible for this session being recorded...')
+        
     orgutils.dictToOrg(org_data=session_dict,output_filename='sessions/' + session_archetype + '/' + session_id + '/session.org')
     print('session info saved to sessions/' + session_archetype + '/' + session_id + '/' + 'session.org')
 
@@ -265,15 +267,4 @@ def quickstartSession(args, session_dict=None, subject_id_dict=None, session_id=
 
     # start session
     os.system('python sessions/' + session_archetype + '/run.py --session-id ' + session_id)
-
-    if marathon:
-        print('Session complete!')
-        answer =input("Press 'enter' when you are ready to continue to the next session, or q to quit...")
-        if answer == 'q':
-            quit()
-        else:
-            quickstartSession(args,
-                              session_dict=session_dict,
-                              subject_id_dict=session_dict['subject roles'],
-                              marathon=True)
-            
+    return {'args' : args, 'session_dict' : session_dict, 'subject_id_dict' : session_dict['subject roles']}

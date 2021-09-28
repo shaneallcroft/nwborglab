@@ -41,7 +41,17 @@ def main():
         if command_args[0] == 'quickstart':
             sessionHandler.quickstartSession(command_args[1:])
         if command_args[0] == 'quickstartmarathon':
-            sessionHandler.quickstartSession(command_args[1:], marathon=True)
+            session_resultant_metadata = sessionHandler.quickstartSession(command_args[1:])
+            while True:
+                print('Session complete!\n')
+                answer =input("Press 'enter' when you are ready to continue to the next session, or q to quit...")
+                if answer == 'q':
+                    quit()
+                else:                    
+                    session_resultant_metadata = sessionHandler.quickstartSession(args=session_resultant_metadata['args'],
+                                                                                  session_dict=session_resultant_metadata['session_dict'],
+                                                                                  subject_id_dict=session_resultant_metadata['subject_id_dict'])
+                    
 
     print(command)
     print(command_args)
