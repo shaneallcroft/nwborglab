@@ -1,36 +1,81 @@
 * calibration
 ** description
    really cool
+   brainflow returns "uV" (micro Volts probably?)
+   
 ** subject roles
 *** viewer
 **** stimuli
-     a DEAP dataset video
+     a deap dataset video
 **** sensors
      ultracortex
 **** other notes
      the movie is so cool
 **** survey
      fuck you
+** nwb unit columns
+*** valence
+    the level of valence self reported by the subject after watching the video, on a scale from 1-9. sam rating scale image presented with the question -- experiment-media/sam.png
+*** exitation
+    the level of valence self reported by the subject after watching the video, on a scale from 1-9. sam rating scale image presented with the question -- experiment-media/sam.png
+*** videourl
+    URL to the DEAP video
 ** programmatic
 *** initial
 #+BEGIN_SRC python
   # ACTUAL TODO add survey about DEAPU
   # ACTUAL TODO add / look into adding nwb processing modules
-  print('hello from skeleton initial')
+  # ACTUAL TODO look into making org file in subject folder detailing their progress with the DEAP videos
+  print('Please select a DEAP video for the subject to watch now')
+  video_link = input('Please enter the url for the DEAP video...')
+  print('Please prepare subject for viewing session:')
+  print('  - in a separate terminal window navigate to `experiment-media` in your nwborg project root folder and run `feh SAM.png`')
+  print('  - Look at the timestamps for the video specified in the DEAP dataset, prepare to play the video starting at the appropriate timestamp')
+  print('  - Using a timer or watching the video progress bar, prepare to stop the video at the appropriate timestamp\n')
+  input("When you're ready: press Enter in this window. The recording session will begin. Wait 3 seconds and then press the play button to begin playing the video")
 #+END_SRC       
 *** loop
 #+BEGIN_SRC python
-  print('hello from skeleton loop')
+  # session skeleton doing nothing in loop
 #+END_SRC       
 *** terminal
-#+BEGIN_SRC python
-  print('Begin post session survey')
-  print('hello from skeleton terminal')
-#+END_SRC       
-* test
+#+begin_src python
+  # actual todo add arguments for the different dimensions
+  print('\n(questions for the subject)')
+  print('please direct your attention to the emotional scale image and answer the following questions based on your experience watching the video:')
+  sam_valence = input('where do you fall on the top row scale? left to right 1-9, top row (valence)...') 
+  sam_exitation = input('where do you fall on the middle row scale? left to right 1-9 middle row (excitation)...')
+  nwbfile.add_unit(id=1,valence=sam_valence,exitation=sam_exitation,videourl=video_link)
+#+end_src       
+* emotive controller
+** description
+   mario sunshine get pumped
+** subject roles
+*** player
+**** stimuli
+     super mario sunshine
+**** sensors
+     ultracortex
+**** other notes
+     level 2
+**** survey
+     fuck you
 ** programmatic
 *** initial
-#+BEGIN_SRC python
-parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
-		      required=False, default='/home/shaneallcroft/.local/share/dolphin-emu/Pipes/pipe1')
-#+END_SRC
+#+begin_src python
+  from brainflow.data_filter import datafilter
+  # emotive controller initial:
+  parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
+			required=false, default='/home/shaneallcroft/.local/share/dolphin-emu/pipes/pipe1')
+#+end_src
+*** loop
+#+begin_src python
+  # emotive controller loop:
+  # requires sensors/ultracortex.org
+  coefficients = datafilter.perform_wavelet_transform(eg_data)
+  
+#+end_src
+*** terminal
+#+begin_src python
+  # emotive controller terminal:
+#+end_src

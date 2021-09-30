@@ -1,8 +1,22 @@
-* Experiment Abstract
+* experiment abstract
   hello
-* Experimenter
+* Methods
+  a control session is necessary to capture the ability / approach of the player when given full control
+  over the game but WITH the added caveats
+  
+* experimenter
   world
-* Lab
+* lab
   shane
-* Institution
+* institution
   here
+* subject mods
+** dev notes
+   org mode rocks! : ) 
+** programmatic
+*** init
+    whoa
+*** delete
+    wwooa
+*** read
+    wow

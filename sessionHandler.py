@@ -125,7 +125,9 @@ def generateSessionCode(args):
         f.write(tab+"session_id = args.session_id\n")
         f.write(tab+"session_path = nwborg_root_path + 'sessions/" + session_archetype + "/' + session_id + '/'\n")
         f.write(tab+"nwbfile = NWBFile(session_description=skeleton['description'],identifier=session_id,session_start_time=datetime.now(),file_create_date=datetime.today())\n")
-
+        print(skeleton['nwb unit columns'])
+        for unit_column in skeleton['nwb unit columns'].keys():
+            f.write(tab+"nwbfile.add_unit_column('"+str(unit_column)+"','"+str(skeleton['nwb unit columns'][unit_column])+"')\n")
         f.write(tab+"print('nwborg root path: ', nwborg_root_path)\n")
         f.write(tab+"session_dict = orgutils.orgToDict(filename=session_path+'session.org')\n") # pick it up
 
@@ -135,7 +137,9 @@ def generateSessionCode(args):
         
         # user defined additions to the source code
         # one at a time add the sensors and add prompts to the file ensuring
-
+        for statement in skeleton['programmatic']['initial']:
+            f.write(half_tab + statement+'\n')
+        
         for role in hardware_used.keys():
             print('initializing sensors for the ' + role + '...')
             sensor = hardware_used[role]
@@ -146,12 +150,10 @@ def generateSessionCode(args):
             for statement in initialization_code:
                 statement = statement.replace('ROLE',role)
                 f.write(half_tab + statement+'\n')
-        # TODO here make sure to read and insert the code that comes from the
-        # session skeleton itself
-        for statement in skeleton['programmatic']['initial']:
-            f.write(half_tab + statement+'\n')
 
 
+        # INITIAL STATMENTS END
+        # LOOP STATEMENTS BEGIN        
         f.write(tab + 'try:\n')
         f.write((tab * 2) + 'while(True):\n')
         
