@@ -26,6 +26,8 @@
   # ACTUAL TODO add survey about DEAPU
   # ACTUAL TODO add / look into adding nwb processing modules
   # ACTUAL TODO look into making org file in subject folder detailing their progress with the DEAP videos
+  from brainflow.data_filter import DataFilter, FilterTypes, AggOperations
+  import scipy as sp
   print('Please select a DEAP video for the subject to watch now')
   video_link = input('Please enter the url for the DEAP video...')
   print('Please prepare subject for viewing session:')
@@ -33,20 +35,47 @@
   print('  - Look at the timestamps for the video specified in the DEAP dataset, prepare to play the video starting at the appropriate timestamp')
   print('  - Using a timer or watching the video progress bar, prepare to stop the video at the appropriate timestamp\n')
   input("When you're ready: press Enter in this window. The recording session will begin. Wait 3 seconds and then press the play button to begin playing the video")
-#+END_SRC       
+  session_knn_points = {}
+  window_number = 0
+#+END_SRC
 *** loop
 #+BEGIN_SRC python
-  # session skeleton doing nothing in loop
+  eeg_data_channel_list = [channel_1,channel_2,channel_3,channel_4,channel_5,channel_6,channel_7,channel_8]
+  if bool(window_number):
+      # if window number is not 0 that is
+      # input window as knn classifier
+      for channel in eeg_data_channel_list:
+	  numpy_channel = np.array(channel)
+	  normalized_channel = (numpy_channel - numpy_channel.min()) / (numpy_channel.max() - numpy_channel.min())
+	  #^^^^^^ using min-max normalization ^^^^^^
+  
+	  print('before theta bandpass:\n',normalized_channel)
+	  theta_band = DataFilter.perform_bandpass(data=normalized_channel,sampling_rate=250,center_freq=6.0,band_width=4.0,order=1,filter_type=0,ripple=0.0)
+	  print('after theta bandpass:\n',normalized_channel,'\n\n\n')
+	  alpha_band = DataFilter.perform_bandpass(data=normalized_channel,sampling_rate=250,center_freq=12.0,band_width=8.0,order=1,filter_type=0,ripple=0.0)
+	  beta_band = DataFilter.perform_bandpass(data=normalized_channel,sampling_rate=250,center_freq=24.0,band_width=16.0,order=1,filter_type=0,ripple=0.0)
+	  gamma_band = DataFilter.perform_bandpass(data=normalized_channel,sampling_rate=250,center_freq=48.0,band_width=32.0,order=1,filter_type=0,ripple=0.0)
+  
+	  # if needed you should convert the bands to np again if datafilter doesn't return an np array
+	  # REAL ACTUAL TODO you gotta do DWT 
+  
+	  # [entropy, energy]
+	  theta_features = [theta_band/theta_band.sum(axis=1,keepdims=True),]
+	  alpha_features = [alpha_band/alpha_band.sum(axis=1,keepdims=True),]
+	  beta_features = [beta_band/beta_band.sum(axis=1,keepdims=True),]
+	  gamma_features = [gamma_band/gammaa_band.sum(axis=1,keepdims=True),]
+  # the first full window will be 1
+  window_number += 1
 #+END_SRC       
 *** terminal
-#+begin_src python
+#+BEGIN_SRC python
   # actual todo add arguments for the different dimensions
   print('\n(questions for the subject)')
   print('please direct your attention to the emotional scale image and answer the following questions based on your experience watching the video:')
   sam_valence = input('where do you fall on the top row scale? left to right 1-9, top row (valence)...') 
   sam_exitation = input('where do you fall on the middle row scale? left to right 1-9 middle row (excitation)...')
   nwbfile.add_unit(id=1,valence=sam_valence,exitation=sam_exitation,videourl=video_link)
-#+end_src       
+#+END_SRC       
 * emotive controller
 ** description
    mario sunshine get pumped
@@ -66,13 +95,13 @@
   from brainflow.data_filter import datafilter
   # emotive controller initial:
   parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
-			required=false, default='/home/shaneallcroft/.local/share/dolphin-emu/pipes/pipe1')
+                        required=false, default='/home/shaneallcroft/.local/share/dolphin-emu/pipes/pipe1')
 #+end_src
 *** loop
 #+begin_src python
   # emotive controller loop:
   # requires sensors/ultracortex.org
-  coefficients = datafilter.perform_wavelet_transform(eg_data)
+  coefficients = datafilter.perform_wavelet_transform(egg_data)
   
 #+end_src
 *** terminal

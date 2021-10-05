@@ -128,7 +128,7 @@
   channel_6 = [] #np.array([0] * int(sampling_rate * WINDOW_LENGTH))
   channel_7 = [] #np.array([0] * int(sampling_rate * WINDOW_LENGTH))
   channel_8 = []#np.array([0] * int(sampling_rate * WINDOW_LENGTH))  
-#+END_SRC       
+#+END_SRC
 ** loop
 #+BEGIN_SRC python
   eeg_data = board.get_board_data()  
@@ -138,10 +138,11 @@
   
   for i,data_buffer in enumerate(eeg_data):
       if not i in eeg_channels:
-	  continue 
+          continue 
       for x in range(len(data_buffer)):  
-	  eeg_formatted[x].append(data_buffer[x])
+          eeg_formatted[x].append(data_buffer[x])
   #ACTUAL TODO see if there's any needed referencing to the BIAS
+  #ACTUAL TODO see if there's any needed AMR business to do here
   print('hello from inside ultracortex.org loop')
   for data_point in eeg_formatted:
       channel_1.append(data_point[0])
@@ -153,12 +154,7 @@
       channel_7.append(data_point[6])
       channel_8.append(data_point[7])
   
-      nwb_eeg_ts_raw.append(data_point)
-  #print(eeg_data)
-  
-  # data filtering 
-  
-  
+      nwb_eeg_ts_raw.append(data_point)   
   time.sleep(0.25)
   
 #+END_SRC
@@ -172,9 +168,15 @@
   nwbfile.add_acquisition(nwb_eeg_ts)
 #+END_SRC       
 * dev notes
+** eeg_data
   - eeg_data is where the most recent read from the board is stored during the loop
-  - 
-  - 
+** board variables
+*** sampling_rate
+    
+*** eeg_channels
+    - array with all (presumably) the indexes of the eeg channels from the raw data
+*** channel_1 - 8
+    - variables channel_1 through channel_8 will hold effective timeseries for the individual channels
 * other notes
   - medium size
   - it is so cool, it is very cool, oh yeah
