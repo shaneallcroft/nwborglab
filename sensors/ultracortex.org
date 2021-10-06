@@ -131,7 +131,7 @@
 #+END_SRC
 ** loop
 #+BEGIN_SRC python
-  eeg_data = board.get_board_data()  
+  eeg_data = board.get_board_data()
   eeg_formatted = list()
   for i in range(len(eeg_data[0])):
       eeg_formatted.append(list())
@@ -154,7 +154,7 @@
       channel_7.append(data_point[6])
       channel_8.append(data_point[7])
   
-      nwb_eeg_ts_raw.append(data_point)  
+      nwb_eeg_ts_raw.append(data_point)
   time.sleep(0.25)
   
 #+END_SRC

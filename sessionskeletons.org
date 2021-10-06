@@ -44,6 +44,7 @@
       session_knn_points = {}
   window_number = 0
   feature_point_list = []
+  eeg_data_channel_list = []
 #+END_SRC
 *** loop
 #+BEGIN_SRC python
@@ -79,6 +80,7 @@
   
   # the first full window will be 1
   window_number += 1
+  eeg_data_channel_list = [channel_1,channel_2,channel_3,channel_4,channel_5,channel_6,channel_7,channel_8]
 #+END_SRC       
 *** terminal
 #+BEGIN_SRC python
@@ -105,7 +107,42 @@
   orgutils.dictToOrg(org_data=session_knn_points,filename=('subjects/' + str(subject_id) + '/calibration_knn.org'))
   
   
-  # Pick it up, what needs to happen is nwb_eeg_ts needs to be iterated over with windows of 500
+  # Pick it up, what needs to happen is nwb_eeg_ts needs to be iterated over with half windows of 500 (2 seconds)
+  # With features being captured at resolutions of 1 window or 4 seconds 1000 points
+  # basically the code from loop translated to be at the end when looping over all this shtuff
+  
+  half_window_count = int(nwb_eeg_ts/500) # the number of half windows across the frame of the session
+  
+  # use channel list
+  for window_idx in range(half_window_count):
+      if bool(window_idx): # if it isn't the 0 index window
+	  knn_feature_point = {}
+	  for channel_number, channel in enumerate(eeg_data_channel_list):
+
+	      numpy_channel = np.array(channel)
+	      normalized_channel = (numpy_channel - numpy_channel.min()) / (numpy_channel.max() - numpy_channel.min())
+	      #^^^^^^ using min-max normalization ^^^^^^
+  
+	      print('before theta bandpass:\n',normalized_channel)
+	      theta_band = DataFilter.perform_bandpass(data=normalized_channel,sampling_rate=250,center_freq=6.0,band_width=4.0,order=1,filter_type=0,ripple=0.0)
+	      print('after theta bandpass:\n',normalized_channel,'\n\n\n')
+	      alpha_band = DataFilter.perform_bandpass(data=normalized_channel,sampling_rate=250,center_freq=12.0,band_width=8.0,order=1,filter_type=0,ripple=0.0)
+	      beta_band = DataFilter.perform_bandpass(data=normalized_channel,sampling_rate=250,center_freq=24.0,band_width=16.0,order=1,filter_type=0,ripple=0.0)
+	      gamma_band = DataFilter.perform_bandpass(data=normalized_channel,sampling_rate=250,center_freq=48.0,band_width=32.0,order=1,filter_type=0,ripple=0.0)
+  
+	      # if needed you should convert the bands to np again if datafilter doesn't return an np array
+	      # REAL ACTUAL TODO you gotta do DWT 
+  
+	      knn_feature_point[str(channel_number)] = {'alpha' : {'entropy' : alpha_band/alpha_band.sum(axis=1,keepdims=True),
+								   'energy'  : alpha_band.sum()},
+							'beta'  : {'entropy' : beta_band/beta_band.sum(axis=1,keepdims=True),}
+							'gamma' : {'entropy' : gamma_band/gamma_band.sum(axis=1,keepdims=True),}
+							'theta' : {'entropy' : theta_band/theta_band.sum(axis=1,keepdims=True),}}
+	      #beta_features = [beta_band/beta_band.sum(axis=1,keepdims=True),]
+	      #gamma_features = [gamma_band/gamma_band.sum(axis=1,keepdims=True),]
+	      #theta_features = [theta_band/theta_band.sum(axis=1,keepdims=True),]
+	  feature_point_list.append(knn_feature_point)
+  
   
   
 #+END_SRC       
