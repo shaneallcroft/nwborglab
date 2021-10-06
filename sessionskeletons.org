@@ -28,6 +28,7 @@
   # ACTUAL TODO look into making org file in subject folder detailing their progress with the DEAP videos
   from brainflow.data_filter import DataFilter, FilterTypes, AggOperations
   import scipy as sp
+  import pandas as pd
   print('Please select a DEAP video for the subject to watch now')
   video_link = input('Please enter the url for the DEAP video...')
   print('Please prepare subject for viewing session:')
@@ -37,6 +38,7 @@
   input("When you're ready: press Enter in this window. The recording session will begin. Wait 3 seconds and then press the play button to begin playing the video")
   session_knn_points = {}
   window_number = 0
+  feature_point_list = []
 #+END_SRC
 *** loop
 #+BEGIN_SRC python
@@ -60,21 +62,42 @@
 	  # REAL ACTUAL TODO you gotta do DWT 
   
 	  # [entropy, energy]
-	  theta_features = [theta_band/theta_band.sum(axis=1,keepdims=True),]
 	  alpha_features = [alpha_band/alpha_band.sum(axis=1,keepdims=True),]
 	  beta_features = [beta_band/beta_band.sum(axis=1,keepdims=True),]
-	  gamma_features = [gamma_band/gammaa_band.sum(axis=1,keepdims=True),]
+	  gamma_features = [gamma_band/gamma_band.sum(axis=1,keepdims=True),]
+	  theta_features = [theta_band/theta_band.sum(axis=1,keepdims=True),]
+  
+	  knn_feature_point = [alpha_features, beta_features, gamma_features, theta_features]
+	  feature_point_list.append(knn_feature_point)
+  
+  
   # the first full window will be 1
   window_number += 1
 #+END_SRC       
 *** terminal
 #+BEGIN_SRC python
-  # actual todo add arguments for the different dimensions
-  print('\n(questions for the subject)')
-  print('please direct your attention to the emotional scale image and answer the following questions based on your experience watching the video:')
-  sam_valence = input('where do you fall on the top row scale? left to right 1-9, top row (valence)...') 
-  sam_exitation = input('where do you fall on the middle row scale? left to right 1-9 middle row (excitation)...')
-  nwbfile.add_unit(id=1,valence=sam_valence,exitation=sam_exitation,videourl=video_link)
+	# actual todo add arguments for the different dimensions
+	# session_path
+	if os.isfile('subjects/' + str(subject_id) + '/calibration_knn.csv'):
+	    calibration_csv = pd.read_csv('subjects/' + str(subject_id) + '/calibration_knn.csv') # read in the csv 
+	else:
+	    calibration_csv = pd.Dataframe(columns=['alpha_entropy',
+						    'alpha_energy'
+						    'beta_entropy',
+						    'beta_energy',
+						    'gamma_entropy',
+						    'gamma_energy',
+						    'theta_entropy',
+						    'theta_energy'])
+	calibration_csv.to_csv('subjects/' + str(subject_id) + '/calibration_knn.csv')
+	
+	# enter all the calibration data into the dataframe as rows
+	
+	print('\n(questions for the subject)')
+	print('please direct your attention to the emotional scale image and answer the following questions based on your experience watching the video:')
+	sam_valence = input('where do you fall on the top row scale? left to right 1-9, top row (valence)...') 
+	sam_exitation = input('where do you fall on the middle row scale? left to right 1-9 middle row (excitation)...')
+	nwbfile.add_unit(id=1,valence=sam_valence,exitation=sam_exitation,videourl=video_link)
 #+END_SRC       
 * emotive controller
 ** description
