@@ -138,9 +138,9 @@
   
   for i,data_buffer in enumerate(eeg_data):
       if not i in eeg_channels:
-          continue 
+	  continue 
       for x in range(len(data_buffer)):  
-          eeg_formatted[x].append(data_buffer[x])
+	  eeg_formatted[x].append(data_buffer[x])
   #ACTUAL TODO see if there's any needed referencing to the BIAS
   #ACTUAL TODO see if there's any needed AMR business to do here
   print('hello from inside ultracortex.org loop')
@@ -154,7 +154,7 @@
       channel_7.append(data_point[6])
       channel_8.append(data_point[7])
   
-      nwb_eeg_ts_raw.append(data_point)   
+      nwb_eeg_ts_raw.append(data_point)  
   time.sleep(0.25)
   
 #+END_SRC
