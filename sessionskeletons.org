@@ -49,7 +49,9 @@
   eeg_data_channel_list = []
 #+END_SRC
 *** loop
-#+BEGIN_SRC python
+#+BEGIN_SRC python    
+  # the only thing to do in here is make sure the eeg_data_channel list is up to date
+  # because the session code is injected after the hardware code, it always will be up to date at the end of each loop iteration 
   eeg_data_channel_list = [channel_1,channel_2,channel_3,channel_4,channel_5,channel_6,channel_7,channel_8]
 #+END_SRC       
 *** terminal
@@ -128,6 +130,7 @@
               orgutils.dictToOrg(org_data=session_knn_points,output_filename=('subjects/' + str(subject_id) + '/calibration_knn.org'))
   
 #+END_SRC       
+* manual controller
 * emotive controller
 ** description
    mario sunshine get pumped
@@ -147,7 +150,18 @@
   from brainflow.data_filter import datafilter
   # emotive controller initial:
   parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
-                        required=false, default='/home/shaneallcroft/.local/share/dolphin-emu/pipes/pipe1')
+			required=false, default='/home/shaneallcroft/.local/share/dolphin-emu/pipes/pipe1')
+  
+  
+  # REAL ACTUAL TODO make the savestates for the game and save them in experiment/media
+  input('Beginning emotive controller test session, please make sure the subject is wearing the ultracortex headset...')
+  input('this test will take video recording, please ensure the webcam is properly setup and the "emotive-controller-test" scene on OBS is properly configured...')
+  input('refrain as much as possible from any exagerated or pronounced face muscle activity, including clenching jaw, grinning, etc as this will interfere with the eeg readings...')
+  
+  os.system('obs-studio --startrecording --scene "emotive-controller-test"')
+  os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_1 &') # the & at the end makes it asynchronous
+  os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_2 &') # the & at the end makes it asynchronous  
+  os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_3 &') # the & at the end makes it run in parallel
 #+end_src
 *** loop
 #+begin_src python
@@ -159,4 +173,7 @@
 *** terminal
 #+begin_src python
   # emotive controller terminal:
+  os.system('cp experiment-media/webcam-recordings-temp/* ' + 'subjects/'+session_dict['subject roles']['player']['subject id'])
+  os.system('mv experiment-media/webcam-recordings-temp/* ' + 'sessions/'+session_dict['archetype'] + '/' + str(session_id))
 #+end_src
+

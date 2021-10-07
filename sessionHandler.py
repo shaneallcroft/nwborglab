@@ -254,7 +254,7 @@ def quickstartSession(args, session_dict=None, subject_id_dict=None, session_id=
     if session_dict == None: # i.e. if session_dict was not passed as a parameter to this function
         session_dict = dict()
     session_dict['subject roles'] = skeleton['subject roles']
-
+    session_dict['archetype'] = session_archetype
     if not 'date' in session_dict.keys():
         session_dict['date'] = dt.today()
 
