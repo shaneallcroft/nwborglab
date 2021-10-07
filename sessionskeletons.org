@@ -23,12 +23,14 @@
 ** programmatic
 *** initial
 #+BEGIN_SRC python
+  # programmtic implementation based on
+  #https://content.iospress.com/download/technology-and-health-care/thc174836?id=technology-and-health-care%2Fthc174836
+  
   # ACTUAL TODO add survey about DEAPU
   # ACTUAL TODO add / look into adding nwb processing modules
   # ACTUAL TODO look into making org file in subject folder detailing their progress with the DEAP videos
   from brainflow.data_filter import DataFilter, FilterTypes, AggOperations
-  from orgutils import orgutils
-  import scipy as sp
+  from scipy.stats import entropy
   import pandas as pd
   print('Please select a DEAP video for the subject to watch now')
   video_link = input('Please enter the url for the DEAP video...')
@@ -37,8 +39,9 @@
   print('  - Look at the timestamps for the video specified in the DEAP dataset, prepare to play the video starting at the appropriate timestamp')
   print('  - Using a timer or watching the video progress bar, prepare to stop the video at the appropriate timestamp\n')
   input("When you're ready: press Enter in this window. The recording session will begin. Wait 3 seconds and then press the play button to begin playing the video")
+  subject_id = session_dict['subject roles']['viewer']['subject id']
   
-  if os.isfile('subjects/' + str(subject_id) + '/calibration_knn.org'):
+  if os.path.isfile('subjects/' + str(subject_id) + '/calibration_knn.org'):
       session_knn_points = orgutils.orgToDict(filename=('subjects/' + str(subject_id) + '/calibration_knn.org'))
   else:
       session_knn_points = {}
@@ -53,7 +56,7 @@
 #+BEGIN_SRC python
   # actual todo add arguments for the different dimensions
   # session_path
-  #if os.isfile('subjects/' + str(subject_id) + '/calibration_knn.csv'):
+  #if os.path.isfile('subjects/' + str(subject_id) + '/calibration_knn.csv'):
   #    calibration_csv = pd.read_csv('subjects/' + str(subject_id) + '/calibration_knn.csv') # read in the csv 
   #else:
   #    calibration_csv = pd.Dataframe(columns=['alpha_entropy','alpha_energy','beta_entropy','beta_energy','gamma_entropy','gamma_energy','theta_entropy','theta_energy','valence','exitement'])
@@ -68,51 +71,61 @@
   session_knn_points[video_link]['VALENCE'] = sam_valence
   sam_excitation = input('where do you fall on the middle row scale? left to right 1-9 middle row (excitation)...')
   session_knn_points[video_link]['EXCITATION'] = sam_excitation
-  for point_num, point in enumerate(feature_point_list):
-      session_knn_points[video_link][str(point_num)] = point
-  nwbfile.add_unit(id=1,valence=sam_valence,exitation=sam_exitation,videourl=video_link)
-  orgutils.dictToOrg(org_data=session_knn_points,filename=('subjects/' + str(subject_id) + '/calibration_knn.org'))
+  nwbfile.add_unit(id=1,valence=int(sam_valence),exitation=int(sam_excitation),videourl=video_link)
+  
   
   
   # Pick it up, what needs to happen is nwb_eeg_ts needs to be iterated over with half windows of 500 (2 seconds)
   # With features being captured at resolutions of 1 window or 4 seconds 1000 points
   # basically the code from loop translated to be at the end when looping over all this shtuff
   
-  half_window_count = int(nwb_eeg_ts/500) # the number of half windows across the frame of the session
+  half_window_count = int(len(nwb_eeg_ts_raw)/500) # the number of half windows across the frame of the session
+  #print(len(nwb_eeg_ts.data))
+  #print(len(nwb_eeg_ts_raw))
   
   # use channel list
   for window_idx in range(half_window_count):
       if bool(window_idx): # if it isn't the 0 index window
-	  knn_feature_point = {}
-	  for channel_number, channel in enumerate(eeg_data_channel_list):
-	      numpy_channel = np.array(channel)
-	      normalized_channel = (numpy_channel - numpy_channel.min()) / (numpy_channel.max() - numpy_channel.min())
-	      #^^^^^^ using min-max normalization ^^^^^^
-	      window_data = normalized_channel[(window_idx * 500):((window_idx * 500) + 1000)]
-	      print('before theta bandpass:\n',window_data)
-	      theta_band = DataFilter.perform_bandpass(data=window_data,sampling_rate=250,center_freq=6.0,band_width=4.0,order=1,filter_type=0,ripple=0.0)
-	      print('after theta bandpass:\n',window_data,'\n\n\n')
-	      alpha_band = DataFilter.perform_bandpass(data=window_data,sampling_rate=250,center_freq=12.0,band_width=8.0,order=1,filter_type=0,ripple=0.0)
-	      beta_band = DataFilter.perform_bandpass(data=window_data,sampling_rate=250,center_freq=24.0,band_width=16.0,order=1,filter_type=0,ripple=0.0)
-	      gamma_band = DataFilter.perform_bandpass(data=window_data,sampling_rate=250,center_freq=48.0,band_width=32.0,order=1,filter_type=0,ripple=0.0)
+          knn_feature_point = {}
+          for channel_number, channel in enumerate(eeg_data_channel_list):
+              numpy_channel = np.array(channel)
   
-	      # if needed you should convert the bands to np again if datafilter doesn't return an np array
-	      # REAL ACTUAL TODO you gotta do DWT 
-	      
-	      knn_feature_point['channel' + str(channel_number)] = {'alpha' : {'entropy' : entr(alpha_band),
-									       'energy'  : alpha_band.sum() * .004},
-								    'beta'  : {'entropy' : entr(beta_band),
-									       'energy'  : beta_band.sum() * .004}
-								    'gamma' : {'entropy' : entr(gamma_band),
-									       'energy'  : gamma_band.sum() * .004}
-								    'theta' : {'entropy' : entr(theta_band),
-									       'energy'  : theta_band.sum() * .004}}
-	      #beta_features = [beta_band/beta_band.sum(axis=1,keepdims=True),]
-	      #gamma_features = [gamma_band/gamma_band.sum(axis=1,keepdims=True),]
-	      #theta_features = [theta_band/theta_band.sum(axis=1,keepdims=True),]
-	  session_knn_points[video_link][str(window_idx)] = knn_feature_point
+              # ACTUAL TODO TEST vvvvv change back or investigate further
+              normalized_channel = (numpy_channel - numpy_channel.min()) / (numpy_channel.max() - numpy_channel.min())
+              #^^^^^^ using min-max normalization ^^^^^^
+              window_data = normalized_channel[(window_idx * 500):((window_idx * 500) + 1000)]
+              alpha_band = window_data.copy()
+              beta_band = window_data.copy()
+              gamma_band = window_data.copy()
+              theta_band = window_data.copy()
+              #print('before theta bandpass:\n',window_data)
+              DataFilter.perform_bandpass(data=theta_band,sampling_rate=250,center_freq=6.0,band_width=4.0,order=1,filter_type=0,ripple=0.0)
+              #print('after theta bandpass:\n',window_data,'\n\n\n')
+              DataFilter.perform_bandpass(data=alpha_band,sampling_rate=250,center_freq=12.0,band_width=8.0,order=1,filter_type=0,ripple=0.0)
+              DataFilter.perform_bandpass(data=beta_band,sampling_rate=250,center_freq=24.0,band_width=16.0,order=1,filter_type=0,ripple=0.0)
+              DataFilter.perform_bandpass(data=gamma_band,sampling_rate=250,center_freq=48.0,band_width=32.0,order=1,filter_type=0,ripple=0.0)
   
-  
+              print(alpha_band)
+              print(beta_band)
+              print(gamma_band)
+              print(theta_band)
+              # if needed you should convert the bands to np again if datafilter doesn't return an np array
+              # REAL ACTUAL TODO you gotta do DWT
+              #print('alpha band: ', alpha_band)
+              #print(entr(list(alpha_band)))
+              knn_feature_point['channel' + str(channel_number)] = {'alpha' : {'entropy' : entropy(np.square(alpha_band)),
+                                                                               'energy'  : alpha_band.sum() * .004},
+                                                                    'beta'  : {'entropy' : entropy(np.square(beta_band)),
+                                                                               'energy'  : beta_band.sum() * .004},
+                                                                    'gamma' : {'entropy' : entropy(np.square(gamma_band)),
+                                                                               'energy'  : gamma_band.sum() * .004},
+                                                                    'theta' : {'entropy' : entropy(np.square(theta_band)),
+                                                                               'energy'  : theta_band.sum() * .004}}
+              #beta_features = [beta_band/beta_band.sum(axis=1,keepdims=True),]
+              #gamma_features = [gamma_band/gamma_band.sum(axis=1,keepdims=True),]
+              #theta_features = [theta_band/theta_band.sum(axis=1,keepdims=True),]
+              session_knn_points[video_link][str(window_idx)] = knn_feature_point
+              orgutils.dictToOrg(org_data=session_knn_points,output_filename=('subjects/' + str(subject_id) + '/calibration_knn.org'))
   
 #+END_SRC       
 * emotive controller

@@ -14,7 +14,7 @@ def createSubject(args):
         subject_files = os.listdir('subjects')
         largest_id = 0
         for subject_file in subject_files:
-            subject_num = int(subject_file[:-4])
+            subject_num = int(subject_file)
             if subject_num > largest_id:
                 largest_id = subject_num
         new_id = largest_id + 1
@@ -36,6 +36,7 @@ def createSubject(args):
     subject_dict['Sex'] = input('Please enter subject sex M for male F for female O for other...')
     subject_dict['Date of Birth'] = input('Please input the subject\'s date of birth (ex. 08/11/1998)...')
     subject_dict['Description'] = input('Please provide additional description for the subject...')
-    orgutils.dictToOrg(org_data=subject_dict,output_filename='subjects/' + subject_id + '.org')
+    os.mkdir('subjects/' + subject_id)
+    orgutils.dictToOrg(org_data=subject_dict,output_filename='subjects/' + subject_id + '/' + subject_id + '.org')
     print('subject info saved to subjects/' + subject_id + '.org')
     

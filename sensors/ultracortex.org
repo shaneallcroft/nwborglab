@@ -80,7 +80,7 @@
       # arg parse stuff
   # ACTUAL TODO move what you can of this argparse shit into parsing this file
   parser.add_argument('--timeout', type=int, help='timeout for device discovery or connection'
-			, default=0)
+                        , default=0)
   parser.add_argument('--ip-port', type=int, help='ip port', required=False, default=0)
   parser.add_argument('--ip-protocol', type=int, help='ip protocol, check IpProtocolType enum', required=False, default=0)
   parser.add_argument('--ip-address', type=str, help='ip address', required=False, default='')
@@ -90,7 +90,7 @@
   parser.add_argument('--serial-number', type=str, help='serial number', required=False, default='')
   parser.add_argument('--file', type=str, help='file', required=False, default='')
   parser.add_argument('--sample-frequency', type=float, help='how many times per second to sample',
-		      default=1.0)
+                      default=1.0)
   
   args = parser.parse_args()
   
@@ -138,9 +138,9 @@
   
   for i,data_buffer in enumerate(eeg_data):
       if not i in eeg_channels:
-	  continue 
+          continue 
       for x in range(len(data_buffer)):  
-	  eeg_formatted[x].append(data_buffer[x])
+          eeg_formatted[x].append(data_buffer[x])
   #ACTUAL TODO see if there's any needed referencing to the BIAS
   #ACTUAL TODO see if there's any needed AMR business to do here
   print('hello from inside ultracortex.org loop')
