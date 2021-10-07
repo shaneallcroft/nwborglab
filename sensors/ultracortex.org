@@ -164,7 +164,7 @@
   board.release_session()
   # ACTUAL TODO move what you can of this parameters into orgutils parsing this file
   electrode_table_region = nwbfile.create_electrode_table_region(list(range(0,len(ultracortex_config['electrode config'].keys()))), 'all of the ultracortex electrodes')
-  nwb_eeg_ts = ElectricalSeries('ultracortex eeg data',np.transpose(nwb_eeg_ts_raw),electrode_table_region,starting_time=0.0,rate=float(sampling_rate),resolution=.001,comments='data read in from an ultracortex mark IV headset', description=skeleton['description'])
+  nwb_eeg_ts = ElectricalSeries('ultracortex eeg data',nwb_eeg_ts_raw,electrode_table_region,starting_time=0.0,rate=float(sampling_rate),resolution=.001,comments='data read in from an ultracortex mark IV headset', description=skeleton['description'])
   nwbfile.add_acquisition(nwb_eeg_ts)
 #+END_SRC       
 * dev notes
@@ -172,7 +172,7 @@
   - eeg_data is where the most recent read from the board is stored during the loop
 ** board variables
 *** sampling_rate
-    
+    250 hz
 *** eeg_channels
     - array with all (presumably) the indexes of the eeg channels from the raw data
 *** channel_1 - 8
