@@ -92,7 +92,7 @@
   parser.add_argument('--sample-frequency', type=float, help='how many times per second to sample',
                       default=1.0)
   
-  args = parser.parse_args()
+  args,unknown = parser.parse_known_args()
   
   # Read into params from args
   params = BrainFlowInputParams()

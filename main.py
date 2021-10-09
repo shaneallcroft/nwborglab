@@ -10,14 +10,16 @@ def main():
     # add the parameters for the UltracortexNwbTimeSeries contructor as command line arguments
     parser.add_argument('--command', help='command to be run', default='help', nargs='*')
     
+    #parser.add_argument('args', nargs=argparse.REMAINDER)
     # parse the args
     # TODO make a .log file all output is appended to then also have a -l or --loud flag for printing output to standard output
     
-    args = parser.parse_args()
-
+    args, unknown = parser.parse_known_args()
+    #Namespace(args)
+    print(unknown)
     # call appropriate command function
     command = args.command[0]
-    command_args = args.command[1:]
+    command_args = args.command[1:] 
     
     if command == 'init':
         initHandler.init(command_args)
@@ -39,7 +41,7 @@ def main():
         if command_args[0] == 'start':
             sessionHandler.quickstartSession(command_args[1:])
         if command_args[0] == 'quickstart':
-            sessionHandler.quickstartSession(command_args[1:])
+            sessionHandler.quickstartSession(command_args[1:], unknown=unknown)
         if command_args[0] == 'quickstartmarathon':
             session_resultant_metadata = sessionHandler.quickstartSession(command_args[1:])
             while True:
