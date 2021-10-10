@@ -193,6 +193,7 @@
 #+BEGIN_SRC python
   from brainflow.data_filter import DataFilter
   import numpy as np
+  from scipy.stats import entropy
   # emotive controller initial:
   parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
                         required=False, default='/home/shaneallcroft/.local/share/dolphin-emu/Pipes/pipe1')
@@ -242,11 +243,11 @@
               single_knn_point_features.append(channel_data['theta']['entropy'])
               single_knn_point_features.append(channel_data['theta']['energy'])
           #alpha_band = knn_window['channel ' + str(int(knn_window_idx)]
-          calibration_knn_points.append({'features' : np.array(single_knn_point_features),
+          calibration_knn_points.append({'features' : single_knn_point_features,
                                          'VALENCE':video_valence,
                                          'EXCITATION':video_excitation})
   
-  print('DEBUG subject calibration points: ', calibration_knn_points)
+  #print('DEBUG subject calibration points: ', calibration_knn_points)
   controller_fifo = open(pipe_path, 'w')
 #+END_SRC
 *** loop
@@ -263,12 +264,14 @@
       distance_record = {}
       for channel_number, channel in enumerate(eeg_data_channel_list):
           channel_number = eeg_channels[channel_number]
-          numpy_channel = np.array(channel)
+          numpy_channel = np.array(channel)[int((len(nwb_eeg_ts_raw) - WINDOW_LENGTH)):len(nwb_eeg_ts_raw)]
+          # REAL ACTUAL TODO if [int((len(nwb_eeg_ts_raw) - WINDOW_LENGTH)):len(nwb_eeg_ts_raw)]
+          # works you have to make sure you're calibrating with consideration to the same kind of window
   
           # ACTUAL TODO TEST vvvvv change back or investigate further
           normalized_channel = (numpy_channel - numpy_channel.min()) / (numpy_channel.max() - numpy_channel.min())
           #^^^^^^ using min-max normalization ^^^^^^
-          window_data = normalized_channel[(len(nwb_eeg_ts_raw) - WINDOW_LENGTH):len(nwb_eeg_ts_raw)] # ACTUAL TODO MAKE SURE YOU SHOULDN"T BE NORMALIZAING HERE INSTEAD
+          window_data = normalized_channel # ACTUAL TODO MAKE SURE YOU SHOULDN"T BE NORMALIZAING HERE INSTEAD
           alpha_band = window_data.copy()
           beta_band = window_data.copy()
           gamma_band = window_data.copy()
@@ -280,10 +283,10 @@
           DataFilter.perform_bandpass(data=beta_band,sampling_rate=250,center_freq=24.0,band_width=16.0,order=1,filter_type=0,ripple=0.0)
           DataFilter.perform_bandpass(data=gamma_band,sampling_rate=250,center_freq=48.0,band_width=32.0,order=1,filter_type=0,ripple=0.0)
   
-          print(alpha_band)
-          print(beta_band)
-          print(gamma_band)
-          print(theta_band)
+          #print(alpha_band)
+          #print(beta_band)
+          #print(gamma_band)
+          #print(theta_band)
           # if needed you should convert the bands to np again if datafilter doesn't return an np array
           # REAL ACTUAL TODO you gotta do DWT
           #print('alpha band: ', alpha_band)
@@ -314,16 +317,19 @@
   
           # use distance_record.keys().sort to iterate over it when it comes time to round up the points
   
+      current_brain_features = np.array(current_brain_features,dtype='float64')
       for calibration_point in calibration_knn_points:
-          calibration_point_features = calibration_point['features']
+          calibration_point_features = np.array(calibration_point['features'],dtype='float64')
           distance = np.linalg.norm(calibration_point_features - current_brain_features)
           if not (distance in distance_record.keys()):
               distance_record[distance] = []
           distance_record[distance].append(calibration_point)
   
       # find the k closest points
-      canon_input_points = []
-      for point_distance in distance_record.keys().sort():
+      canon_input_points = []      
+      ordered_point_dist_list = list(distance_record.keys())
+      ordered_point_dist_list.sort()
+      for point_distance in ordered_point_dist_list:
           for point in distance_record[point_distance]:
               canon_input_points.append(point)
               if len(canon_input_points) > knn_k:
@@ -334,8 +340,8 @@
       valence_total = 0.0
       excitation_total = 0.0
       for point in canon_input_points:
-          valence_average += point['VALENCE']
-          excitation_average += point['EXCITATION']
+          valence_total += float(point['VALENCE'])
+          excitation_total += float(point['EXCITATION'])
           #if not point['VALENCE'] in knn_voting_dict.keys():
           #    knn_voting_dict['VALENCE'][point['VALENCE']] = 0
           #knn_voting_dict['VALENCE'][point['VALENCE']] += 1
@@ -343,11 +349,12 @@
           #    knn_voting_dict['EXCITATION'][point['EXCITATION']] = 0
           #knn_voting_dict['EXCITATION'][point['EXCITATION']] += 1
       controller_x = (float(valence_total) / float(knn_k)) / 9.0 # valence
-      controller_y = (float(excitation_total) / float(knn_k)) / 9.0 # excitation
-      last_window_end_idx = len(nwb_eeg_ts_raw) # PICK IT UP ^^^^^^^^^^
-      controller_fifo.write('SET MAIN ' + str(controller_x)[1:4] + ' ' + str(controller_y)[1:4])
+      controller_y = (float(excitation_total) / float(knn_k)) / 9.0 # excitation 
+      last_window_end_idx = len(nwb_eeg_ts_raw) # PICK IT UP ^^^^^^^^^^ 
+      print('SET MAIN ' + str(controller_x)[1:3] + ' ' + str(controller_y)[1:3])
+      controller_fifo.write('SET MAIN ' + str(controller_x)[1:3] + ' ' + str(controller_y)[1:3] + '\n')
       controller_fifo.flush()
-      
+      # REAL ACTUAL TODO THIS COULD BE WAY PERFECT if you are voting right
 #+END_SRC
 *** terminal
 #+BEGIN_SRC python
