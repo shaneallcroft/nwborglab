@@ -19,6 +19,8 @@
     the level of valence self reported by the subject after watching the video, on a scale from 1-9. sam rating scale image presented with the question -- experiment-media/sam.png
 *** videourl
     URL to the DEAP video
+*** deapemotiontag
+    the emotion tag on the video
 ** programmatic
 *** initial
 #+BEGIN_SRC python
@@ -31,8 +33,12 @@
   from brainflow.data_filter import DataFilter, FilterTypes, AggOperations
   from scipy.stats import entropy
   import pandas as pd
-  print('Please select a DEAP video for the subject to watch now')
-  video_link = input('Please enter the url for the DEAP video...')
+  print('Please select and input a DEAP data-set video for the subject to watch now')
+  video_link = input('DEAP video URL...')
+  deapemotiontag = input("If avialable, please provide the video's DEAP emotion tag (cheerful, sentimental, calm etc)....")
+  if deapemotiontag == '':
+      deapemotiontag = '!!!unknown!!!'
+  
   print('Please prepare subject for viewing session:')
   print('  - in a separate terminal window navigate to `experiment-media` in your nwborg project root folder and run `feh SAM.png`')
   print('  - Look at the timestamps for the video specified in the DEAP dataset, prepare to play the video starting at the appropriate timestamp')
@@ -72,7 +78,7 @@
   session_knn_points[video_link]['VALENCE'] = sam_valence
   sam_excitation = input('where do you fall on the middle row scale? left to right 1-9 middle row (excitation)...')
   session_knn_points[video_link]['EXCITATION'] = sam_excitation
-  nwbfile.add_unit(id=1,valence=int(sam_valence),exitation=int(sam_excitation),videourl=video_link)
+  nwbfile.add_unit(id=1,valence=int(sam_valence),exitation=int(sam_excitation),videourl=video_link,deapemotiontag=deapemotiontag)
   
   
   
