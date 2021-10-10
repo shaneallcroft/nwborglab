@@ -145,6 +145,7 @@
   #ACTUAL TODO see if there's any needed AMR business to do here
   print('hello from inside ultracortex.org loop')
   for data_point in eeg_formatted:
+      print(data_point)
       channel_1.append(data_point[0])
       channel_2.append(data_point[1])
       channel_3.append(data_point[2])

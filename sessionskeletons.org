@@ -214,7 +214,7 @@
   input('Beginning emotive controller test session, please make sure the subject is wearing the ultracortex headset...')
   input('this test will take video recording, please ensure the webcam is properly setup and the "emotive-controller-test" scene on OBS is properly configured...')
   input('refrain as much as possible from any exagerated or pronounced face muscle activity, including clenching jaw, grinning, etc as this will interfere with the eeg readings...')
-  WINDOW_LENGTH = 1000 # at a rate of 250hz this is equal to 4 seconds
+  WINDOW_POINT_LENGTH = 1000 # at a rate of 250hz this is equal to 4 seconds
   if not args.debug == 1:
       os.system('obs-studio --startrecording --scene "emotive-controller-test"')
       os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_1 &') # the & at the end makes it asynchronous
@@ -256,16 +256,19 @@
   # requires sensors/ultracortex.org
   # coefficients = datafilter.perform_wavelet_transform(egg_data)
   eeg_data_channel_list = [channel_1,channel_2,channel_3,channel_4,channel_5,channel_6,channel_7,channel_8]
-  if len(nwb_eeg_ts_raw) - last_window_end_idx < WINDOW_LENGTH: # window not large enough yet
-      print('Session: emotive controller waiting for input' + str(brain_input_count) + ' more data...')
+  print('nwb_eeg_ts_raw length: ', len(nwb_eeg_ts_raw))
+  print('last_window_end_idx: ', last_window_end_idx)
+  print('WINDOW_POINT_LENGTH: ', WINDOW_POINT_LENGTH)
+  if len(nwb_eeg_ts_raw) - last_window_end_idx < WINDOW_POINT_LENGTH: # window not large enough yet
+      print('Session: emotive controller waiting for input' + str(brain_input_count) + ' more data...')      
   else:
       knn_feature_point = {}
       current_brain_features = []
       distance_record = {}
       for channel_number, channel in enumerate(eeg_data_channel_list):
           channel_number = eeg_channels[channel_number]
-          numpy_channel = np.array(channel)[int((len(nwb_eeg_ts_raw) - WINDOW_LENGTH)):len(nwb_eeg_ts_raw)]
-          # REAL ACTUAL TODO if [int((len(nwb_eeg_ts_raw) - WINDOW_LENGTH)):len(nwb_eeg_ts_raw)]
+          numpy_channel = np.array(channel)[int((len(nwb_eeg_ts_raw) - WINDOW_POINT_LENGTH)):len(nwb_eeg_ts_raw)]
+          # REAL ACTUAL TODO if [int((len(nwb_eeg_ts_raw) - WINDOW_POINT_LENGTH)):len(nwb_eeg_ts_raw)]
           # works you have to make sure you're calibrating with consideration to the same kind of window
   
           # ACTUAL TODO TEST vvvvv change back or investigate further
@@ -354,6 +357,7 @@
       print('SET MAIN ' + str(controller_x)[1:3] + ' ' + str(controller_y)[1:3])
       controller_fifo.write('SET MAIN ' + str(controller_x)[1:3] + ' ' + str(controller_y)[1:3] + '\n')
       controller_fifo.flush()
+      brain_input_count += 1
       # REAL ACTUAL TODO THIS COULD BE WAY PERFECT if you are voting right
 #+END_SRC
 *** terminal
