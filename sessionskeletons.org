@@ -376,6 +376,6 @@
 #+BEGIN_SRC python
   # emotive controller terminal:
   controller_fifo.close()
-  os.system('cp experiment-media/webcam-recordings-temp/* ' + 'subjects/'+session_dict['subject roles']['player']['subject id'])
-  os.system('mv experiment-media/webcam-recordings-temp/* ' + 'sessions/'+session_dict['archetype'] + '/' + str(session_id))
+  #os.system('cp experiment-media/webcam-recordings-temp/* ' + 'subjects/'+session_dict['subject roles']['player']['subject id'])
+  #os.system('mv experiment-media/webcam-recordings-temp/* ' + 'sessions/'+session_dict['archetype'] + '/' + str(session_id))
 #+END_SRC

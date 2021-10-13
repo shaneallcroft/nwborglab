@@ -163,6 +163,7 @@
 #+BEGIN_SRC python
   board.stop_stream()
   board.release_session()
+  print('session released')
   # ACTUAL TODO move what you can of this parameters into orgutils parsing this file
   electrode_table_region = nwbfile.create_electrode_table_region(list(range(0,len(ultracortex_config['electrode config'].keys()))), 'all of the ultracortex electrodes')
   nwb_eeg_ts = ElectricalSeries('ultracortex eeg data',nwb_eeg_ts_raw,electrode_table_region,starting_time=0.0,rate=float(sampling_rate),resolution=.001,comments='data read in from an ultracortex mark IV headset', description=skeleton['description'])
