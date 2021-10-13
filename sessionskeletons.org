@@ -56,7 +56,8 @@
 *** loop
 #+BEGIN_SRC python    
   # the only thing to do in here is make sure the eeg_data_channel list is up to date
-  # because the session code is injected after the hardware code, it always will be up to date at the end of each loop iteration 
+  # because the session code is injected after the hardware code, it always will be up to date at the end of each loop iteration
+  print(eeg_data)
   eeg_data_channel_list = [channel_1,channel_2,channel_3,channel_4,channel_5,channel_6,channel_7,channel_8]
 #+END_SRC       
 *** terminal
@@ -89,7 +90,7 @@
   half_window_count = int(len(nwb_eeg_ts_raw)/500) # the number of half windows across the frame of the session
   #print(len(nwb_eeg_ts.data))
   #print(len(nwb_eeg_ts_raw))
-  
+  print('window count', half_window_count * 2)
   # use channel list
   for window_idx in range(half_window_count):
       if bool(window_idx): # if it isn't the 0 index window
@@ -262,11 +263,12 @@
   # requires sensors/ultracortex.org
   # coefficients = datafilter.perform_wavelet_transform(egg_data)
   eeg_data_channel_list = [channel_1,channel_2,channel_3,channel_4,channel_5,channel_6,channel_7,channel_8]
-  print('nwb_eeg_ts_raw length: ', len(nwb_eeg_ts_raw))
-  print('last_window_end_idx: ', last_window_end_idx)
-  print('WINDOW_POINT_LENGTH: ', WINDOW_POINT_LENGTH)
+  #print('nwb_eeg_ts_raw length: ', len(nwb_eeg_ts_raw))
+  #print('last_window_end_idx: ', last_window_end_idx)
+  #print('WINDOW_POINT_LENGTH: ', WINDOW_POINT_LENGTH)
   if len(nwb_eeg_ts_raw) - last_window_end_idx < WINDOW_POINT_LENGTH: # window not large enough yet
-      print('Session: emotive controller waiting for input' + str(brain_input_count) + ' more data...')      
+      #print('Session: emotive controller waiting for input' + str(brain_input_count) + ' more data...')
+      abcde = 2
   else:
       knn_feature_point = {}
       current_brain_features = []
@@ -343,11 +345,14 @@
               canon_input_points.append(point)
               if len(canon_input_points) > knn_k:
                   break
+          if len(canon_input_points) > knn_k:
+              break
       # alright dope, we have the canon points now
       #knn_voting_dict = {'VALENCE' : {}, 'EXCITATION' : {}}
       # TODO ACTUAL TODO FIX THE VOTING PROCESS
       valence_total = 0.0
       excitation_total = 0.0
+      print('canon inputs: ', canon_input_points)
       for point in canon_input_points:
           valence_total += float(point['VALENCE'])
           excitation_total += float(point['EXCITATION'])
@@ -360,8 +365,9 @@
       controller_x = (float(valence_total) / float(knn_k)) / 9.0 # valence
       controller_y = (float(excitation_total) / float(knn_k)) / 9.0 # excitation 
       last_window_end_idx = len(nwb_eeg_ts_raw) # PICK IT UP ^^^^^^^^^^ 
-      print('SET MAIN ' + str(controller_x)[1:3] + ' ' + str(controller_y)[1:3])
-      controller_fifo.write('SET MAIN ' + str(controller_x)[1:3] + ' ' + str(controller_y)[1:3] + '\n')
+      controller_input_str = 'SET MAIN ' + str(controller_x)[1:3] + ' ' + str(controller_y)[1:3] + '\n'
+      print(controller_input_str)
+      controller_fifo.write(controller_input_str)
       controller_fifo.flush()
       brain_input_count += 1
       # REAL ACTUAL TODO THIS COULD BE WAY PERFECT if you are voting right

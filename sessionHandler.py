@@ -175,9 +175,11 @@ def generateSessionCode(args):
         for statement in skeleton['programmatic']['loop']:
             f.write(tab * 2 + half_tab + statement+'\n')
 
-        f.write(tab + 'except Exception as e:\n')
+            #f.write(tab + 'except Exception as e:\n')
+        f.write(tab + 'except:\n')
+        # ACTUAL TODO FIX THE DEBUG ^^^^^^
         # ACTUAL TODO FIX THE OUTPUT vvvvv
-        f.write(tab * 2 + 'print("\\nrecording complete", e)\n')
+        f.write(tab * 2 + 'print("\\nrecording complete")\n')#, e)\n')
         for role in hardware_used.keys():
             print('initializing sensors for the ' + role + '...')
             #for sensor in hardware_used[role]:
