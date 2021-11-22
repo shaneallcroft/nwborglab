@@ -32,7 +32,6 @@ def init(args):
     
 
     
-    print('hello')
     if os.path.isfile('.nwb.org'):
         print('ERROR: This directory is already the root of an nwborg project.')
         return

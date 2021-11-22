@@ -1,0 +1,18 @@
+* subject roles
+** player
+*** stimuli
+super mario sunshine
+*** sensors
+ultracortex
+*** other notes
+level 2
+*** survey
+fuck you
+*** subject id
+0001
+* archetype
+emotive_controller
+* date
+2021-10-09 20:01:11.352201
+* session supervisor
+shane

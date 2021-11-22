@@ -96,12 +96,14 @@
       if bool(window_idx): # if it isn't the 0 index window
           knn_feature_point = {}
           for channel_number, channel in enumerate(eeg_data_channel_list):
-              numpy_channel = np.array(channel)
+              channel_number = eeg_channels[channel_number]
+              print(channel_number)
+              numpy_channel = np.array(channel[(window_idx * 500):((window_idx * 500) + 1000)])
   
               # ACTUAL TODO TEST vvvvv change back or investigate further
               normalized_channel = (numpy_channel - numpy_channel.min()) / (numpy_channel.max() - numpy_channel.min())
               #^^^^^^ using min-max normalization ^^^^^^
-              window_data = normalized_channel[(window_idx * 500):((window_idx * 500) + 1000)]
+              window_data = normalized_channel
               alpha_band = window_data.copy()
               beta_band = window_data.copy()
               gamma_band = window_data.copy()
@@ -113,22 +115,22 @@
               DataFilter.perform_bandpass(data=beta_band,sampling_rate=250,center_freq=24.0,band_width=16.0,order=1,filter_type=0,ripple=0.0)
               DataFilter.perform_bandpass(data=gamma_band,sampling_rate=250,center_freq=48.0,band_width=32.0,order=1,filter_type=0,ripple=0.0)
   
-              print(alpha_band)
-              print(beta_band)
-              print(gamma_band)
-              print(theta_band)
+              #print(alpha_band)
+              #print(beta_band)
+              #print(gamma_band)
+              #print(theta_band)
               # if needed you should convert the bands to np again if datafilter doesn't return an np array
               # REAL ACTUAL TODO you gotta do DWT
               #print('alpha band: ', alpha_band)
               #print(entr(list(alpha_band)))
-              knn_feature_point['channel ' + str(eeg_channels[int(channel_number)])] = {'alpha' : {'entropy' : entropy(np.square(alpha_band)),
-                                                                                                       'energy'  : alpha_band.sum() * .004},
-                                                                                            'beta'  : {'entropy' : entropy(np.square(beta_band)),
-                                                                                                       'energy'  : beta_band.sum() * .004},
-                                                                                            'gamma' : {'entropy' : entropy(np.square(gamma_band)),
-                                                                                                       'energy'  : gamma_band.sum() * .004},
-                                                                                            'theta' : {'entropy' : entropy(np.square(theta_band)),
-                                                                                                       'energy'  : theta_band.sum() * .004}}
+              knn_feature_point['channel ' + str(channel_number)] = {'alpha' : {'entropy' : entropy(np.square(alpha_band)),
+                                                                                'energy'  : alpha_band.sum() * .004},
+                                                                     'beta'  : {'entropy' : entropy(np.square(beta_band)),
+                                                                                'energy'  : beta_band.sum() * .004},
+                                                                     'gamma' : {'entropy' : entropy(np.square(gamma_band)),
+                                                                                'energy'  : gamma_band.sum() * .004},
+                                                                     'theta' : {'entropy' : entropy(np.square(theta_band)),
+                                                                                'energy'  : theta_band.sum() * .004}}
               #beta_features = [beta_band/beta_band.sum(axis=1,keepdims=True),]
               #gamma_features = [gamma_band/gamma_band.sum(axis=1,keepdims=True),]
               #theta_features = [theta_band/theta_band.sum(axis=1,keepdims=True),]
@@ -203,7 +205,7 @@
   from scipy.stats import entropy
   # emotive controller initial:
   parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
-                        required=False, default='/home/shaneallcroft/.local/share/dolphin-emu/Pipes/pipe1')
+			required=False, default='/home/shaneallcroft/.local/share/dolphin-emu/Pipes/pipe1')
   parser.add_argument('--debug', type=int, help='the path to the controller input pipe',required=False, default=0)
   args, unknown = parser.parse_known_args()
   pipe_path = args.pipe_path
@@ -235,24 +237,24 @@
       video_valence = calibration_dict['VALENCE']
       video_excitation = calibration_dict['EXCITATION']
       for knn_window_idx, knn_window_data in calibration_dict.items():
-          if knn_window_idx == 'VALENCE': # pick it up
-              continue
-          if knn_window_idx == 'EXCITATION':
-              continue
-          single_knn_point_features = []
-          for channel_name, channel_data in knn_window_data.items():      
-              single_knn_point_features.append(channel_data['alpha']['entropy'])
-              single_knn_point_features.append(channel_data['alpha']['energy'])
-              single_knn_point_features.append(channel_data['beta']['entropy'])
-              single_knn_point_features.append(channel_data['beta']['energy'])
-              single_knn_point_features.append(channel_data['gamma']['entropy'])
-              single_knn_point_features.append(channel_data['gamma']['energy'])
-              single_knn_point_features.append(channel_data['theta']['entropy'])
-              single_knn_point_features.append(channel_data['theta']['energy'])
-          #alpha_band = knn_window['channel ' + str(int(knn_window_idx)]
-          calibration_knn_points.append({'features' : single_knn_point_features,
-                                         'VALENCE':video_valence,
-                                         'EXCITATION':video_excitation})
+	  if knn_window_idx == 'VALENCE': # pick it up
+	      continue
+	  if knn_window_idx == 'EXCITATION':
+	      continue
+	  single_knn_point_features = []
+	  for channel_name, channel_data in knn_window_data.items():      
+	      single_knn_point_features.append(channel_data['alpha']['entropy'])
+	      single_knn_point_features.append(channel_data['alpha']['energy'])
+	      single_knn_point_features.append(channel_data['beta']['entropy'])
+	      single_knn_point_features.append(channel_data['beta']['energy'])
+	      single_knn_point_features.append(channel_data['gamma']['entropy'])
+	      single_knn_point_features.append(channel_data['gamma']['energy'])
+	      single_knn_point_features.append(channel_data['theta']['entropy'])
+	      single_knn_point_features.append(channel_data['theta']['energy'])
+	  #alpha_band = knn_window['channel ' + str(int(knn_window_idx)]
+	  calibration_knn_points.append({'features' : single_knn_point_features,
+					 'VALENCE':video_valence,
+					 'EXCITATION':video_excitation})
   
   #print('DEBUG subject calibration points: ', calibration_knn_points)
   controller_fifo = open(pipe_path, 'w')

@@ -2,8 +2,7 @@
   hello
 * Methods
   a control session is necessary to capture the ability / approach of the player when given full control
-  over the game but WITH the added caveats
-  
+  over the game but WITH the added caveats  
 * experimenter
   world
 * lab

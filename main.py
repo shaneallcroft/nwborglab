@@ -19,7 +19,7 @@ def main():
     print(unknown)
     # call appropriate command function
     command = args.command[0]
-    command_args = args.command[1:] 
+    command_args = args.command[1:]
     
     if command == 'init':
         initHandler.init(command_args)

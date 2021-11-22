@@ -1,0 +1,4574 @@
+* https://www.youtube.com/watch?v=QvD6maGRh7c
+** VALENCE
+6
+** EXCITATION
+5
+** 1
+*** channel 1
+**** alpha
+***** entropy
+5.1388889303074015
+***** energy
+0.0030579665381333483
+**** beta
+***** entropy
+4.870914162293705
+***** energy
+0.0015589187210633803
+**** gamma
+***** entropy
+5.75359426013569
+***** energy
+0.0008483992382538605
+**** theta
+***** entropy
+5.652041009799149
+***** energy
+0.005666287757729593
+*** channel 2
+**** alpha
+***** entropy
+4.426603685801992
+***** energy
+9.1541446138665e-05
+**** beta
+***** entropy
+3.8137521003339523
+***** energy
+2.3673958083715084e-05
+**** gamma
+***** entropy
+5.016091027031935
+***** energy
+2.820378653772604e-06
+**** theta
+***** entropy
+5.190343342523507
+***** energy
+-6.0606693967070416e-05
+*** channel 3
+**** alpha
+***** entropy
+5.053991133796979
+***** energy
+0.0029631251362277145
+**** beta
+***** entropy
+4.826612344191828
+***** energy
+0.0014833339373541367
+**** gamma
+***** entropy
+5.848567048786446
+***** energy
+0.0008072540295813653
+**** theta
+***** entropy
+5.602702040097736
+***** energy
+0.005708032688738675
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+4.258804986166142
+***** energy
+0.0033712037733716446
+**** beta
+***** entropy
+3.3686097068522587
+***** energy
+0.0017340200954516368
+**** gamma
+***** entropy
+2.6301775927202926
+***** energy
+0.0009417936541986785
+**** theta
+***** entropy
+4.961746358200604
+***** energy
+0.006924705059153329
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 2
+*** channel 1
+**** alpha
+***** entropy
+3.7852613136581845
+***** energy
+0.0020727773436405457
+**** beta
+***** entropy
+3.0085867810425855
+***** energy
+0.0010445051032048395
+**** gamma
+***** entropy
+2.710878941061524
+***** energy
+0.0005789556377184463
+**** theta
+***** entropy
+4.506057634386096
+***** energy
+0.004108100603649435
+*** channel 2
+**** alpha
+***** entropy
+3.088841189736672
+***** energy
+6.563171257926382e-05
+**** beta
+***** entropy
+2.261371966133797
+***** energy
+3.1330197330391e-05
+**** gamma
+***** entropy
+1.7379375051983823
+***** energy
+2.1082658193556924e-05
+**** theta
+***** entropy
+3.8795684722648365
+***** energy
+7.033961617792972e-05
+*** channel 3
+**** alpha
+***** entropy
+3.819333412828681
+***** energy
+0.0006584713760280787
+**** beta
+***** entropy
+2.9199386531974105
+***** energy
+0.0003425526628715402
+**** gamma
+***** entropy
+2.5924716431929427
+***** energy
+0.00020540910151617658
+**** theta
+***** entropy
+4.55739832021804
+***** energy
+0.001355325336330087
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+3.985930991592596
+***** energy
+0.00350409085342145
+**** beta
+***** entropy
+3.466001204350828
+***** energy
+0.0017876755595489042
+**** gamma
+***** entropy
+2.816156931765947
+***** energy
+0.0009731105098354462
+**** theta
+***** entropy
+4.556765436125512
+***** energy
+0.0069677837373518835
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 3
+*** channel 1
+**** alpha
+***** entropy
+4.462885998647952
+***** energy
+0.0014131316681246587
+**** beta
+***** entropy
+4.227893947405806
+***** energy
+0.0006534534624104564
+**** gamma
+***** entropy
+4.226515041339991
+***** energy
+0.0003068417108176628
+**** theta
+***** entropy
+4.381720293344587
+***** energy
+0.002827085250171861
+*** channel 2
+**** alpha
+***** entropy
+3.0469687833028383
+***** energy
+0.0025622478202573483
+**** beta
+***** entropy
+2.519124116341205
+***** energy
+0.001335585087930125
+**** gamma
+***** entropy
+2.352512940065855
+***** energy
+0.0007072693100482571
+**** theta
+***** entropy
+3.742437317903117
+***** energy
+0.005080264035699406
+*** channel 3
+**** alpha
+***** entropy
+4.056740366145703
+***** energy
+0.007830749333372139
+**** beta
+***** entropy
+3.603363869627506
+***** energy
+0.00387908426867833
+**** gamma
+***** entropy
+4.234369506200686
+***** energy
+0.002050009469009815
+**** theta
+***** entropy
+4.488078067417561
+***** energy
+0.015532113769530266
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+3.079359703929502
+***** energy
+5.030712423957429e-05
+**** beta
+***** entropy
+2.394592105098248
+***** energy
+5.0872622676967354e-06
+**** gamma
+***** entropy
+1.5896582432642958
+***** energy
+-3.0570636092699942e-06
+**** theta
+***** entropy
+3.955862538964273
+***** energy
+0.0002512192136703857
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 4
+*** channel 1
+**** alpha
+***** entropy
+5.907130431423368
+***** energy
+0.0045580465239527836
+**** beta
+***** entropy
+6.0035873418791486
+***** energy
+0.0025039279120835554
+**** gamma
+***** entropy
+6.1378795445397385
+***** energy
+0.0009459512486484095
+**** theta
+***** entropy
+5.679136629307218
+***** energy
+0.007883851359482549
+*** channel 2
+**** alpha
+***** entropy
+6.196285770623161
+***** energy
+0.0021054331247854787
+**** beta
+***** entropy
+6.205249134090616
+***** energy
+0.0011442284230626686
+**** gamma
+***** entropy
+6.144070977078187
+***** energy
+0.0004804975357672445
+**** theta
+***** entropy
+6.169166104052843
+***** energy
+0.003911670217988576
+*** channel 3
+**** alpha
+***** entropy
+6.094801919963958
+***** energy
+0.00925646197218196
+**** beta
+***** entropy
+6.125237555062467
+***** energy
+0.0048233812416944985
+**** gamma
+***** entropy
+6.178505230823552
+***** energy
+0.002482780726959347
+**** theta
+***** entropy
+6.078601074043892
+***** energy
+0.018204776891112048
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+2.6389416057886788
+***** energy
+2.53543566070622e-05
+**** beta
+***** entropy
+1.889580340231916
+***** energy
+1.8059934376823962e-06
+**** gamma
+***** entropy
+1.1928970244801043
+***** energy
+2.110744183366542e-06
+**** theta
+***** entropy
+3.3750253408310704
+***** energy
+0.00012495163698352486
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 5
+*** channel 1
+**** alpha
+***** entropy
+5.0673030413291595
+***** energy
+0.004757864881336254
+**** beta
+***** entropy
+5.181047916821204
+***** energy
+0.0024526893983232603
+**** gamma
+***** entropy
+5.144888639751767
+***** energy
+0.0013513806443947707
+**** theta
+***** entropy
+5.094143604701336
+***** energy
+0.010456218679621699
+*** channel 2
+**** alpha
+***** entropy
+2.779379272159103
+***** energy
+0.0005979834891617308
+**** beta
+***** entropy
+2.2210413929752377
+***** energy
+0.0003393552418131165
+**** gamma
+***** entropy
+1.9646850328423904
+***** energy
+0.00018869627906161003
+**** theta
+***** entropy
+3.5650295908659784
+***** energy
+0.0013960575803966453
+*** channel 3
+**** alpha
+***** entropy
+5.474622090409076
+***** energy
+0.009251286723465688
+**** beta
+***** entropy
+5.739321699503857
+***** energy
+0.004745581408988246
+**** gamma
+***** entropy
+5.908722501473032
+***** energy
+0.0025890429521910137
+**** theta
+***** entropy
+5.07870528702814
+***** energy
+0.019370542444910436
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+3.4963105999884596
+***** energy
+0.0019312011860181065
+**** beta
+***** entropy
+2.6582340489611465
+***** energy
+0.0010160080474976233
+**** gamma
+***** entropy
+1.831320090772325
+***** energy
+0.0005747499510868468
+**** theta
+***** entropy
+4.229216418175435
+***** energy
+0.002716360315853089
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 6
+*** channel 1
+**** alpha
+***** entropy
+5.147662352638082
+***** energy
+0.0031972032286541425
+**** beta
+***** entropy
+5.172984128782681
+***** energy
+0.0017369178369931158
+**** gamma
+***** entropy
+5.143205131359839
+***** energy
+0.0009407519716341177
+**** theta
+***** entropy
+5.1942304185092425
+***** energy
+0.006662114281979869
+*** channel 2
+**** alpha
+***** entropy
+2.838937464166425
+***** energy
+0.0034564847991890835
+**** beta
+***** entropy
+2.2613740735812096
+***** energy
+0.0017891520579690018
+**** gamma
+***** entropy
+2.0759048201963832
+***** energy
+0.0009644051287389683
+**** theta
+***** entropy
+3.6111132582961356
+***** energy
+0.006852569029998199
+*** channel 3
+**** alpha
+***** entropy
+5.5815573105276695
+***** energy
+0.009342247729233337
+**** beta
+***** entropy
+5.741176992695637
+***** energy
+0.00482032962402492
+**** gamma
+***** entropy
+5.933929481601211
+***** energy
+0.0026347093645305757
+**** theta
+***** entropy
+5.2621973579125045
+***** energy
+0.018769227991602033
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+5.023001168945482
+***** energy
+0.010004669796653098
+**** beta
+***** entropy
+4.680772998778406
+***** energy
+0.005112251724281685
+**** gamma
+***** entropy
+4.26358231527013
+***** energy
+0.0027759428865748357
+**** theta
+***** entropy
+5.316766145955738
+***** energy
+0.019803075671736087
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 7
+*** channel 1
+**** alpha
+***** entropy
+3.988028552049304
+***** energy
+0.0018188831469922162
+**** beta
+***** entropy
+4.311388817342627
+***** energy
+0.0008884944987560397
+**** gamma
+***** entropy
+5.046836238949822
+***** energy
+0.0005214197581782646
+**** theta
+***** entropy
+4.08857821534284
+***** energy
+0.004129048047855191
+*** channel 2
+**** alpha
+***** entropy
+5.438591386542983
+***** energy
+0.00966413365511514
+**** beta
+***** entropy
+5.872561677020123
+***** energy
+0.004958475916246029
+**** gamma
+***** entropy
+5.876818428705785
+***** energy
+0.0026997362111317335
+**** theta
+***** entropy
+5.593121755839131
+***** energy
+0.019243761034257404
+*** channel 3
+**** alpha
+***** entropy
+5.808025632591903
+***** energy
+0.005702150382409718
+**** beta
+***** entropy
+5.918007182749508
+***** energy
+0.0028595708989504532
+**** gamma
+***** entropy
+6.253205918136105
+***** energy
+0.0015909926824036048
+**** theta
+***** entropy
+5.9861629835977705
+***** energy
+0.01209276351434955
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+4.3616950342757095
+***** energy
+0.010012905974694664
+**** beta
+***** entropy
+4.6751344813471585
+***** energy
+0.005106510023482602
+**** gamma
+***** entropy
+4.824581079782073
+***** energy
+0.002776415092440077
+**** theta
+***** entropy
+4.28899832545658
+***** energy
+0.019924215891921886
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 8
+*** channel 1
+**** alpha
+***** entropy
+4.340576789504043
+***** energy
+0.0008846011971767505
+**** beta
+***** entropy
+4.945543174457552
+***** energy
+0.00019412575332831627
+**** gamma
+***** entropy
+5.596016354424045
+***** energy
+0.00022894921512818956
+**** theta
+***** entropy
+4.277068559717085
+***** energy
+0.0019329961166250982
+*** channel 2
+**** alpha
+***** entropy
+5.365361765902775
+***** energy
+0.009526665623500389
+**** beta
+***** entropy
+5.96461678803371
+***** energy
+0.004846753781468396
+**** gamma
+***** entropy
+5.931202698290756
+***** energy
+0.0026852007998350107
+**** theta
+***** entropy
+5.393915064590068
+***** energy
+0.01900303949159708
+*** channel 3
+**** alpha
+***** entropy
+3.8205917804001106
+***** energy
+0.0008545552058155508
+**** beta
+***** entropy
+4.253652569857918
+***** energy
+0.0004070419701139505
+**** gamma
+***** entropy
+5.224773558282791
+***** energy
+0.00023672696878157364
+**** theta
+***** entropy
+3.9546596888430594
+***** energy
+0.0018775670016595303
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+6.328380702549609
+***** energy
+0.010034700107028593
+**** beta
+***** entropy
+6.144959350418572
+***** energy
+0.005108205113323977
+**** gamma
+***** entropy
+5.926351202102861
+***** energy
+0.0027761532808540466
+**** theta
+***** entropy
+6.499674554753735
+***** energy
+0.019971112130237764
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 9
+*** channel 1
+**** alpha
+***** entropy
+4.947512922516239
+***** energy
+0.002884398340622737
+**** beta
+***** entropy
+5.765183326952951
+***** energy
+0.0006501195443349761
+**** gamma
+***** entropy
+5.979060415634198
+***** energy
+0.0005092549056125764
+**** theta
+***** entropy
+4.4453539490305065
+***** energy
+0.005198575283750758
+*** channel 2
+**** alpha
+***** entropy
+6.086486047588716
+***** energy
+0.004181475615584642
+**** beta
+***** entropy
+6.133025893020832
+***** energy
+0.0019130200459355005
+**** gamma
+***** entropy
+6.142216641923878
+***** energy
+0.0011109511543884699
+**** theta
+***** entropy
+6.223834889614573
+***** energy
+0.00859816348306674
+*** channel 3
+**** alpha
+***** entropy
+3.688939756335829
+***** energy
+0.0020667682885837503
+**** beta
+***** entropy
+4.430751884785268
+***** energy
+0.00071674914148204
+**** gamma
+***** entropy
+5.395942143260089
+***** energy
+0.00043908165020638593
+**** theta
+***** entropy
+3.8518947477350185
+***** energy
+0.003912254590459299
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+6.209711674157489
+***** energy
+0.00937143017645897
+**** beta
+***** entropy
+6.172221667691334
+***** energy
+0.0047399773497154365
+**** gamma
+***** entropy
+6.124772366390092
+***** energy
+0.002588841889779997
+**** theta
+***** entropy
+6.197677140837598
+***** energy
+0.01858431649958667
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 10
+*** channel 1
+**** alpha
+***** entropy
+5.981620465174036
+***** energy
+0.003189971044472685
+**** beta
+***** entropy
+6.132754453218537
+***** energy
+0.0012343886604264784
+**** gamma
+***** entropy
+6.150106230322009
+***** energy
+0.0006481490478256168
+**** theta
+***** entropy
+5.811269387108823
+***** energy
+0.006200399266933177
+*** channel 2
+**** alpha
+***** entropy
+2.9377357335210204
+***** energy
+0.00039117215720621345
+**** beta
+***** entropy
+2.820754540818552
+***** energy
+0.00013842449503371636
+**** gamma
+***** entropy
+3.0904794168057483
+***** energy
+9.912253985577069e-05
+**** theta
+***** entropy
+3.4950686840628515
+***** energy
+0.000757516408048268
+*** channel 3
+**** alpha
+***** entropy
+4.793153978429126
+***** energy
+0.0015974243811630773
+**** beta
+***** entropy
+5.364551447392634
+***** energy
+0.0006804508858667368
+**** gamma
+***** entropy
+5.919116502932104
+***** energy
+0.000321093604949964
+**** theta
+***** entropy
+4.648658818249967
+***** energy
+0.0027581161746885207
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+4.181255130092907
+***** energy
+0.009653815804044872
+**** beta
+***** entropy
+4.091962251874822
+***** energy
+0.004895808774116671
+**** gamma
+***** entropy
+4.430787299259887
+***** energy
+0.002663405567792131
+**** theta
+***** entropy
+4.745504705985957
+***** energy
+0.019210607464841347
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 11
+*** channel 1
+**** alpha
+***** entropy
+4.611841894264698
+***** energy
+0.0005702021265358903
+**** beta
+***** entropy
+4.763889790063018
+***** energy
+0.0003708137570296737
+**** gamma
+***** entropy
+5.440443126209127
+***** energy
+0.00032848693243813144
+**** theta
+***** entropy
+4.780885252798271
+***** energy
+0.0019203516765680497
+*** channel 2
+**** alpha
+***** entropy
+3.0312920842728097
+***** energy
+0.00341805210096848
+**** beta
+***** entropy
+2.807355367652274
+***** energy
+0.0017879458090422308
+**** gamma
+***** entropy
+3.0896000321922386
+***** energy
+0.0010332507822682735
+**** theta
+***** entropy
+3.5770404636352406
+***** energy
+0.006936157506767201
+*** channel 3
+**** alpha
+***** entropy
+4.572329819415227
+***** energy
+0.0011975352211956879
+**** beta
+***** entropy
+4.342752059069582
+***** energy
+0.0008020810878834626
+**** gamma
+***** entropy
+4.911983670703674
+***** energy
+0.0005303893802170812
+**** theta
+***** entropy
+4.546349424662882
+***** energy
+0.0028612552667530745
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+3.617721292516969
+***** energy
+0.0009412583306994229
+**** beta
+***** entropy
+2.7475152127007663
+***** energy
+0.0004942195705259778
+**** gamma
+***** entropy
+2.0232969689631526
+***** energy
+0.0002720829706326202
+**** theta
+***** entropy
+4.3400013785733975
+***** energy
+0.0015593784288930976
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 12
+*** channel 1
+**** alpha
+***** entropy
+4.042435236978952
+***** energy
+0.000711785222885788
+**** beta
+***** entropy
+4.037806622581094
+***** energy
+0.000294408006825343
+**** gamma
+***** entropy
+5.07465092113083
+***** energy
+0.00011214070015877553
+**** theta
+***** entropy
+4.349787470833054
+***** energy
+0.0004090029059056821
+*** channel 2
+**** alpha
+***** entropy
+4.91238797432803
+***** energy
+0.007446985028747536
+**** beta
+***** entropy
+5.478383294647762
+***** energy
+0.0036622370720610703
+**** gamma
+***** entropy
+5.923083396508606
+***** energy
+0.002065748372899362
+**** theta
+***** entropy
+4.949361877715366
+***** energy
+0.013974096936229412
+*** channel 3
+**** alpha
+***** entropy
+5.0341675276911415
+***** energy
+0.003990341966136132
+**** beta
+***** entropy
+4.898578396138843
+***** energy
+0.00205993544338884
+**** gamma
+***** entropy
+5.610979993271798
+***** energy
+0.0010734799951397096
+**** theta
+***** entropy
+5.015497454787166
+***** energy
+0.006698963753094996
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+3.1578455559018788
+***** energy
+0.0033984278295786812
+**** beta
+***** entropy
+2.2942326929184045
+***** energy
+0.0017325465520624881
+**** gamma
+***** entropy
+1.6462371793639086
+***** energy
+0.000926912392318004
+**** theta
+***** entropy
+3.936247144759148
+***** energy
+0.006669196438550802
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 13
+*** channel 1
+**** alpha
+***** entropy
+4.413639548567326
+***** energy
+0.0010945298907885253
+**** beta
+***** entropy
+4.9403508373049085
+***** energy
+0.00032307341420311885
+**** gamma
+***** entropy
+5.65560091007021
+***** energy
+0.00018940583008364764
+**** theta
+***** entropy
+4.461447540030509
+***** energy
+0.0027697144475823648
+*** channel 2
+**** alpha
+***** entropy
+5.8695524561683605
+***** energy
+0.00214967642281065
+**** beta
+***** entropy
+5.865142564527454
+***** energy
+0.0013825233559905082
+**** gamma
+***** entropy
+5.973347519611955
+***** energy
+2.2989792201578706e-05
+**** theta
+***** entropy
+5.762831548172343
+***** energy
+0.005196826306662652
+*** channel 3
+**** alpha
+***** entropy
+5.752875731808507
+***** energy
+0.008875280401525007
+**** beta
+***** entropy
+5.828218749011725
+***** energy
+0.0044968442262492215
+**** gamma
+***** entropy
+6.008821204572504
+***** energy
+0.0022544594734698396
+**** theta
+***** entropy
+5.550474931935824
+***** energy
+0.018521833712157112
+*** channel 4
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+5.539070701242786
+***** energy
+0.009799827336132445
+**** beta
+***** entropy
+5.802468968857264
+***** energy
+0.005015047644293256
+**** gamma
+***** entropy
+6.048882070636301
+***** energy
+0.0027677116490064275
+**** theta
+***** entropy
+5.538625474916157
+***** energy
+0.019434135885475615
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+
+* experiment-media/DEAP_metadata/
+** VALENCE
+6
+** EXCITATION
+45
+** 1
+*** channel 1
+**** alpha
+***** entropy
+5.246154986379265
+***** energy
+0.005113352705758793
+**** beta
+***** entropy
+5.911869019003316
+***** energy
+0.0024521177889545104
+**** gamma
+***** entropy
+6.490569754779836
+***** energy
+0.0015161135896561559
+**** theta
+***** entropy
+5.469359581362202
+***** energy
+0.0040233750636852255
+*** channel 2
+**** alpha
+***** entropy
+5.060177116201189
+***** energy
+0.004200119662597898
+**** beta
+***** entropy
+5.694225303926226
+***** energy
+0.002001085737027319
+**** gamma
+***** entropy
+6.471624412086916
+***** energy
+0.0012481218853168821
+**** theta
+***** entropy
+5.34134691282684
+***** energy
+0.0035404559071964023
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+4.599004036449224
+***** energy
+0.005535170635826312
+**** beta
+***** entropy
+5.652620511946194
+***** energy
+0.0027179822806544787
+**** gamma
+***** entropy
+6.561932125963395
+***** energy
+0.0012753591939499433
+**** theta
+***** entropy
+4.884294281225
+***** energy
+0.010057532777585998
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+4.258109425378461
+***** energy
+0.006421228597759846
+**** beta
+***** entropy
+4.53907168258874
+***** energy
+0.0032273306335583087
+**** gamma
+***** entropy
+6.380703438456136
+***** energy
+0.0016389857042728982
+**** theta
+***** entropy
+4.824455134810547
+***** energy
+0.012943406548696721
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 2
+*** channel 1
+**** alpha
+***** entropy
+4.247218724509002
+***** energy
+0.0025117388022141613
+**** beta
+***** entropy
+3.847924384793739
+***** energy
+0.0012559873084302207
+**** gamma
+***** entropy
+4.283325960914115
+***** energy
+0.000653134336945434
+**** theta
+***** entropy
+4.65555694707355
+***** energy
+0.005213020839139215
+*** channel 2
+**** alpha
+***** entropy
+4.258998727471942
+***** energy
+0.0025980284787765918
+**** beta
+***** entropy
+3.8611151780369406
+***** energy
+0.0013036268512848692
+**** gamma
+***** entropy
+4.3223178427764894
+***** energy
+0.0006773057732155276
+**** theta
+***** entropy
+4.665931821018313
+***** energy
+0.005381138315551269
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+4.248292828817271
+***** energy
+0.0020737139985863955
+**** beta
+***** entropy
+4.991287108810871
+***** energy
+0.0010841259950061185
+**** gamma
+***** entropy
+6.189664504286876
+***** energy
+0.0007184533767665568
+**** theta
+***** entropy
+4.617380627017293
+***** energy
+0.004241718548579756
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+3.875609065282074
+***** energy
+0.005516840271881501
+**** beta
+***** entropy
+4.1676942852156404
+***** energy
+0.002833045813617094
+**** gamma
+***** entropy
+6.194680788647201
+***** energy
+0.0016361418491150016
+**** theta
+***** entropy
+4.374723588311261
+***** energy
+0.010991889445626509
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 3
+*** channel 1
+**** alpha
+***** entropy
+4.926782934469717
+***** energy
+0.0030028917024389193
+**** beta
+***** entropy
+4.450861582818132
+***** energy
+0.0014353989750985523
+**** gamma
+***** entropy
+4.609736649720224
+***** energy
+0.0007827349520639923
+**** theta
+***** entropy
+5.258863273379335
+***** energy
+0.0061364599035366625
+*** channel 2
+**** alpha
+***** entropy
+4.9194678603637705
+***** energy
+0.0030684379487420487
+**** beta
+***** entropy
+4.44258586192629
+***** energy
+0.001469850160100134
+**** gamma
+***** entropy
+4.613654646720775
+***** energy
+0.0008017388891865402
+**** theta
+***** entropy
+5.250034748076586
+***** energy
+0.006266644146786867
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+5.026547490885231
+***** energy
+0.0036611573229178374
+**** beta
+***** entropy
+5.053958866932581
+***** energy
+0.0018809216382849278
+**** gamma
+***** entropy
+6.051305279484025
+***** energy
+0.0009880675164522046
+**** theta
+***** entropy
+5.2628162534006435
+***** energy
+0.007152870477707906
+*** channel 5
+**** alpha
+***** entropy
+3.2314720252920472
+***** energy
+-1.1726182723693913e-07
+**** beta
+***** entropy
+3.3052965549956417
+***** energy
+-2.4332653822400906e-11
+**** gamma
+***** entropy
+3.2957337711427477
+***** energy
+-3.0531133094473743e-19
+**** theta
+***** entropy
+3.527699109652352
+***** energy
+1.7793370002115468e-05
+*** channel 6
+**** alpha
+***** entropy
+5.060981115005441
+***** energy
+0.004907638818280346
+**** beta
+***** entropy
+5.154615824377076
+***** energy
+0.002471871784898326
+**** gamma
+***** entropy
+6.310234203099888
+***** energy
+0.0013018571412728168
+**** theta
+***** entropy
+5.333934392136803
+***** energy
+0.009612486654986754
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 4
+*** channel 1
+**** alpha
+***** entropy
+4.8395111699579285
+***** energy
+0.00041086434445876055
+**** beta
+***** entropy
+4.295857677664057
+***** energy
+0.00021284497368259992
+**** gamma
+***** entropy
+4.419233543761491
+***** energy
+0.00011979124841526779
+**** theta
+***** entropy
+5.163425195142604
+***** energy
+0.0009095265584449614
+*** channel 2
+**** alpha
+***** entropy
+4.839220313252712
+***** energy
+0.0005512003886216497
+**** beta
+***** entropy
+4.295080663825915
+***** energy
+0.0002851344529477322
+**** gamma
+***** entropy
+4.426600494231229
+***** energy
+0.000160069688806752
+**** theta
+***** entropy
+5.162995663489512
+***** energy
+0.0011793953492692656
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+4.903632334655865
+***** energy
+0.0016712246489366575
+**** beta
+***** entropy
+4.989187286642012
+***** energy
+0.0008548049078516191
+**** gamma
+***** entropy
+6.289363408783613
+***** energy
+0.0004724623125936114
+**** theta
+***** entropy
+5.162329534792785
+***** energy
+0.003325646783576145
+*** channel 5
+**** alpha
+***** entropy
+3.231472044552368
+***** energy
+2.439454888092385e-21
+**** beta
+***** entropy
+3.3052965549956563
+***** energy
+-2.1002003256158067e-19
+**** gamma
+***** entropy
+3.295733771142748
+***** energy
+-7.673772161601485e-19
+**** theta
+***** entropy
+3.5277189537844795
+***** energy
+-1.764352552946491e-16
+*** channel 6
+**** alpha
+***** entropy
+4.953991911905736
+***** energy
+0.0008390111928244064
+**** beta
+***** entropy
+5.096490850406652
+***** energy
+0.0004336764656389895
+**** gamma
+***** entropy
+6.398587501835419
+***** energy
+0.00024627633986098373
+**** theta
+***** entropy
+5.2138966689482045
+***** energy
+0.001669288619217455
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 5
+*** channel 1
+**** alpha
+***** entropy
+4.821519093495614
+***** energy
+0.0011827328127683512
+**** beta
+***** entropy
+4.234451049735283
+***** energy
+0.0005935262185442981
+**** gamma
+***** entropy
+3.3355136916702737
+***** energy
+0.0003182580262113689
+**** theta
+***** entropy
+5.306630659310314
+***** energy
+0.002472412538335174
+*** channel 2
+**** alpha
+***** entropy
+4.821938462532914
+***** energy
+0.0012149162801533223
+**** beta
+***** entropy
+4.236387586241678
+***** energy
+0.0006097469805977178
+**** gamma
+***** entropy
+3.339244460518217
+***** energy
+0.000326969586357345
+**** theta
+***** entropy
+5.306325884041384
+***** energy
+0.0025364958313979025
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+4.571719916879365
+***** energy
+0.0015695778081675656
+**** beta
+***** entropy
+3.815323250142416
+***** energy
+0.0007900387598444809
+**** gamma
+***** entropy
+3.3324101437813702
+***** energy
+0.00043726094380036287
+**** theta
+***** entropy
+5.2382340667626535
+***** energy
+0.0032669573378613114
+*** channel 5
+**** alpha
+***** entropy
+4.716986383428526
+***** energy
+0.0037662772275100453
+**** beta
+***** entropy
+4.079419827581397
+***** energy
+0.0019060404351146935
+**** gamma
+***** entropy
+3.7963707687108723
+***** energy
+0.0010567811510444139
+**** theta
+***** entropy
+5.204068670364787
+***** energy
+0.007655960482667457
+*** channel 6
+**** alpha
+***** entropy
+4.730135634843421
+***** energy
+0.003613177319723419
+**** beta
+***** entropy
+4.042859984197393
+***** energy
+0.0018300127822375707
+**** gamma
+***** entropy
+3.650364495574401
+***** energy
+0.0010017995626699847
+**** theta
+***** entropy
+5.376320419894544
+***** energy
+0.007347568800196871
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 6
+*** channel 1
+**** alpha
+***** entropy
+4.993496741823062
+***** energy
+0.0005294082726480575
+**** beta
+***** entropy
+4.402461030725992
+***** energy
+0.00012109178757415862
+**** gamma
+***** entropy
+3.5042305754235286
+***** energy
+-2.7592595768088037e-05
+**** theta
+***** entropy
+5.485126728821846
+***** energy
+0.001196381959192184
+*** channel 2
+**** alpha
+***** entropy
+4.9989065082043185
+***** energy
+0.0005314170248991035
+**** beta
+***** entropy
+4.410535685202406
+***** energy
+0.00012162149687007485
+**** gamma
+***** entropy
+3.5077439591311865
+***** energy
+-2.7593236869042028e-05
+**** theta
+***** entropy
+5.488549598730375
+***** energy
+0.0011981282635964235
+*** channel 3
+**** alpha
+***** entropy
+1.6332416370250544
+***** energy
+0.006927928130077382
+**** beta
+***** entropy
+1.6907653845956474
+***** energy
+0.0023304971172050256
+**** gamma
+***** entropy
+1.7994690121549022
+***** energy
+-0.0004662464871530707
+**** theta
+***** entropy
+1.7775365656196238
+***** energy
+0.0059082034721549504
+*** channel 4
+**** alpha
+***** entropy
+3.173492300773435
+***** energy
+0.011322582121901782
+**** beta
+***** entropy
+3.115871661751771
+***** energy
+0.004416488762281932
+**** gamma
+***** entropy
+3.605211636266592
+***** energy
+0.0021067855056283104
+**** theta
+***** entropy
+3.840060970151958
+***** energy
+0.013752761485243887
+*** channel 5
+**** alpha
+***** entropy
+4.31213337342261
+***** energy
+0.010231130112120805
+**** beta
+***** entropy
+4.357540917580271
+***** energy
+0.005153411893658693
+**** gamma
+***** entropy
+4.792795356789081
+***** energy
+0.0027677844060196724
+**** theta
+***** entropy
+4.139252758666046
+***** energy
+0.019501773342702047
+*** channel 6
+**** alpha
+***** entropy
+5.299723616473408
+***** energy
+0.002818551478215064
+**** beta
+***** entropy
+4.57563430973352
+***** energy
+0.0011124582856702609
+**** gamma
+***** entropy
+3.756512121529007
+***** energy
+0.0005153959022373471
+**** theta
+***** entropy
+5.866282081478616
+***** energy
+0.0044170248333249675
+*** channel 7
+**** alpha
+***** entropy
+4.381302434540273
+***** energy
+0.0013846173955422323
+**** beta
+***** entropy
+3.94494550218065
+***** energy
+0.00021172636259920186
+**** gamma
+***** entropy
+3.7012812484083657
+***** energy
+-6.513713755576278e-05
+**** theta
+***** entropy
+4.691308785178403
+***** energy
+0.0014723448078608535
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 7
+*** channel 1
+**** alpha
+***** entropy
+4.916935018853951
+***** energy
+0.006992873229665147
+**** beta
+***** entropy
+4.3042357963242495
+***** energy
+0.0035654934530285234
+**** gamma
+***** entropy
+3.701556549743552
+***** energy
+0.0019360873080451807
+**** theta
+***** entropy
+5.530340288993801
+***** energy
+0.014046073359001595
+*** channel 2
+**** alpha
+***** entropy
+4.922776805429322
+***** energy
+0.006988721498253009
+**** beta
+***** entropy
+4.3140284259761605
+***** energy
+0.003563466405377365
+**** gamma
+***** entropy
+3.7197154847435976
+***** energy
+0.0019350998219023745
+**** theta
+***** entropy
+5.533180025521588
+***** energy
+0.014039347319321627
+*** channel 3
+**** alpha
+***** entropy
+3.709453597196962
+***** energy
+0.005467097304118498
+**** beta
+***** entropy
+3.0086064342528323
+***** energy
+0.0027806341859126994
+**** gamma
+***** entropy
+2.7500179805522627
+***** energy
+0.001510950576457119
+**** theta
+***** entropy
+4.08508979803957
+***** energy
+0.010957794280644195
+*** channel 4
+**** alpha
+***** entropy
+3.5495406968308547
+***** energy
+0.003267636456120288
+**** beta
+***** entropy
+3.2995859037203155
+***** energy
+0.001666896732487273
+**** gamma
+***** entropy
+3.560465650055009
+***** energy
+0.0009133009503839194
+**** theta
+***** entropy
+4.0945180112268496
+***** energy
+0.0065812583371163535
+*** channel 5
+**** alpha
+***** entropy
+5.112400517842428
+***** energy
+0.005639211918630615
+**** beta
+***** entropy
+5.113814762134551
+***** energy
+0.002871021459936276
+**** gamma
+***** entropy
+5.531716094969142
+***** energy
+0.0015623415083443652
+**** theta
+***** entropy
+5.07047150671948
+***** energy
+0.011288845790714637
+*** channel 6
+**** alpha
+***** entropy
+5.143965462237039
+***** energy
+0.005810807742970169
+**** beta
+***** entropy
+4.421566865528753
+***** energy
+0.002947839273515571
+**** gamma
+***** entropy
+4.405891492635394
+***** energy
+0.0016147030848041282
+**** theta
+***** entropy
+5.798374520789009
+***** energy
+0.011701826093634305
+*** channel 7
+**** alpha
+***** entropy
+4.449695665489126
+***** energy
+1.8873791418627663e-17
+**** beta
+***** entropy
+4.003459925210916
+***** energy
+1.1102230246251566e-19
+**** gamma
+***** entropy
+3.719775352217278
+***** energy
+0.0
+**** theta
+***** entropy
+4.725729145765923
+***** energy
+1.6288414061982338e-11
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 8
+*** channel 1
+**** alpha
+***** entropy
+4.894394591022557
+***** energy
+0.004187352372786589
+**** beta
+***** entropy
+4.354614085553731
+***** energy
+0.002135504708147886
+**** gamma
+***** entropy
+3.7912415111035234
+***** energy
+0.0011553669495720416
+**** theta
+***** entropy
+5.494288909978385
+***** energy
+0.008328603920853644
+*** channel 2
+**** alpha
+***** entropy
+4.887717852478369
+***** energy
+0.004236987581000342
+**** beta
+***** entropy
+4.340575597707018
+***** energy
+0.002160899504774035
+**** gamma
+***** entropy
+3.769815845515309
+***** energy
+0.001168926229754932
+**** theta
+***** entropy
+5.488140624069532
+***** energy
+0.008427359368435045
+*** channel 3
+**** alpha
+***** entropy
+3.974552719450261
+***** energy
+3.588387809116966e-10
+**** beta
+***** entropy
+3.1977693822771447
+***** energy
+5.022648963404208e-16
+**** gamma
+***** entropy
+2.9898316424256755
+***** energy
+0.0
+**** theta
+***** entropy
+4.331260420621013
+***** energy
+-5.236573139075773e-07
+*** channel 4
+**** alpha
+***** entropy
+3.2396066285590948
+***** energy
+0.003248718501230062
+**** beta
+***** entropy
+2.320823185801571
+***** energy
+0.0016635062749513554
+**** gamma
+***** entropy
+1.607205385730247
+***** energy
+0.0009144791896408755
+**** theta
+***** entropy
+4.125137411300106
+***** energy
+0.0064534998345079165
+*** channel 5
+**** alpha
+***** entropy
+3.1975958038535177
+***** energy
+2.5223512700343066e-05
+**** beta
+***** entropy
+2.3883977529442575
+***** energy
+1.3039943667710219e-05
+**** gamma
+***** entropy
+1.795961421557917
+***** energy
+1.276963395667763e-05
+**** theta
+***** entropy
+4.058403478627729
+***** energy
+5.88356587326917e-05
+*** channel 6
+**** alpha
+***** entropy
+3.373043020202994
+***** energy
+0.00247403476236141
+**** beta
+***** entropy
+2.4518565926495723
+***** energy
+0.0012730779417050165
+**** gamma
+***** entropy
+1.8616272831556708
+***** energy
+0.0007036784393312494
+**** theta
+***** entropy
+4.3622131206802575
+***** energy
+0.004846695655335978
+*** channel 7
+**** alpha
+***** entropy
+2.5312709717561073
+***** energy
+-1.8153657771157447e-19
+**** beta
+***** entropy
+2.0233407776402075
+***** energy
+7.632783294297951e-20
+**** gamma
+***** entropy
+1.488441183129611
+***** energy
+-4.446416076805704e-19
+**** theta
+***** entropy
+3.1101357759258486
+***** energy
+1.8572711439943752e-19
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 9
+*** channel 1
+**** alpha
+***** entropy
+3.3783267304870477
+***** energy
+0.005519837384039775
+**** beta
+***** entropy
+2.455281477960715
+***** energy
+0.002813263935301274
+**** gamma
+***** entropy
+1.639445741984633
+***** energy
+0.001524901444428765
+**** theta
+***** entropy
+4.183869698932926
+***** energy
+0.010960584143081934
+*** channel 2
+**** alpha
+***** entropy
+3.379775611364953
+***** energy
+0.005576852879570826
+**** beta
+***** entropy
+2.457391852309483
+***** energy
+0.002842063655476653
+**** gamma
+***** entropy
+1.6420984322804275
+***** energy
+0.0015406435692257073
+**** theta
+***** entropy
+4.188804041967469
+***** energy
+0.011075884035840334
+*** channel 3
+**** alpha
+***** entropy
+2.6078446648176685
+***** energy
+3.169639640272955e-20
+**** beta
+***** entropy
+1.8496944811399398
+***** energy
+-4.034001587090419e-19
+**** gamma
+***** entropy
+1.1634638228936771
+***** energy
+4.440892098500626e-19
+**** theta
+***** entropy
+3.37269576247405
+***** energy
+7.540842950071181e-18
+*** channel 4
+**** alpha
+***** entropy
+3.104222682541047
+***** energy
+0.00547526681128665
+**** beta
+***** entropy
+2.216960798049886
+***** energy
+0.00280626036202591
+**** gamma
+***** entropy
+1.7954307790972828
+***** energy
+0.0015332527505815857
+**** theta
+***** entropy
+4.027276302216245
+***** energy
+0.0109362218913096
+*** channel 5
+**** alpha
+***** entropy
+2.585102082899026
+***** energy
+-9.50866775402126e-08
+**** beta
+***** entropy
+1.8518313533896364
+***** energy
+4.608702464103942e-11
+**** gamma
+***** entropy
+1.3063682078093959
+***** energy
+-3.1086244689504384e-18
+**** theta
+***** entropy
+3.3416804802663744
+***** energy
+-9.865338047672979e-06
+*** channel 6
+**** alpha
+***** entropy
+2.8315008439580733
+***** energy
+0.004303956831910821
+**** beta
+***** entropy
+2.0236174118997794
+***** energy
+0.0022270991727964618
+**** gamma
+***** entropy
+1.5582365927481283
+***** energy
+0.001220915988920874
+**** theta
+***** entropy
+3.6754051480159076
+***** energy
+0.008337147623501757
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 10
+*** channel 1
+**** alpha
+***** entropy
+5.879592845579435
+***** energy
+0.005563927974997544
+**** beta
+***** entropy
+6.390164403359979
+***** energy
+0.002911743418110319
+**** gamma
+***** entropy
+6.564283755878796
+***** energy
+0.001579888074862817
+**** theta
+***** entropy
+5.2894299797552815
+***** energy
+0.011015943424738073
+*** channel 2
+**** alpha
+***** entropy
+5.894568058495527
+***** energy
+0.0050122352728683055
+**** beta
+***** entropy
+6.392061197621729
+***** energy
+0.002645467523185009
+**** gamma
+***** entropy
+6.563308835325052
+***** energy
+0.0014334632882776154
+**** theta
+***** entropy
+5.3111879138813345
+***** energy
+0.009896834518500854
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+4.36964763443787
+***** energy
+0.005946234888060824
+**** beta
+***** entropy
+4.484754927672394
+***** energy
+0.0030661075022448874
+**** gamma
+***** entropy
+6.358648041599933
+***** energy
+0.0016145989915737034
+**** theta
+***** entropy
+4.845959737547996
+***** energy
+0.01181857806628082
+*** channel 5
+**** alpha
+***** entropy
+2.6547578843933235
+***** energy
+1.4061017974964506e-18
+**** beta
+***** entropy
+1.9546532756689405
+***** energy
+6.840760372407489e-19
+**** gamma
+***** entropy
+2.3217503817984775
+***** energy
+3.632345615217152e-20
+**** theta
+***** entropy
+3.4690765161192165
+***** energy
+7.398223275320581e-13
+*** channel 6
+**** alpha
+***** entropy
+5.543470820788254
+***** energy
+0.009012595393430559
+**** beta
+***** entropy
+5.959732069504886
+***** energy
+0.0045965814691478835
+**** gamma
+***** entropy
+6.539615301179519
+***** energy
+0.002466778779842044
+**** theta
+***** entropy
+5.311341005608343
+***** energy
+0.01790742583983647
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 11
+*** channel 1
+**** alpha
+***** entropy
+6.154649510189424
+***** energy
+0.00598959798144214
+**** beta
+***** entropy
+6.459891683553875
+***** energy
+0.003150927712293949
+**** gamma
+***** entropy
+6.590066635385815
+***** energy
+0.0020746026780355032
+**** theta
+***** entropy
+5.938464921702029
+***** energy
+0.011658299243755617
+*** channel 2
+**** alpha
+***** entropy
+6.1511519732747875
+***** energy
+0.004812822072924867
+**** beta
+***** entropy
+6.46035346065025
+***** energy
+0.002524098252215639
+**** gamma
+***** entropy
+6.589900405985401
+***** energy
+0.0017523577431485192
+**** theta
+***** entropy
+5.929138425754763
+***** energy
+0.009374244402413969
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+4.381428174499309
+***** energy
+0.0028523923530660348
+**** beta
+***** entropy
+4.983061333327615
+***** energy
+0.001429381462998017
+**** gamma
+***** entropy
+6.495607775751164
+***** energy
+0.0005820073314678192
+**** theta
+***** entropy
+4.82069460614986
+***** energy
+0.005511290230689944
+*** channel 5
+**** alpha
+***** entropy
+4.001290596626618
+***** energy
+-1.2195678354110973e-19
+**** beta
+***** entropy
+3.72195803062868
+***** energy
+2.6812088321790163e-19
+**** gamma
+***** entropy
+3.885175885073014
+***** energy
+4.637605954836169e-19
+**** theta
+***** entropy
+4.202225175618102
+***** energy
+-2.3417050525915847e-20
+*** channel 6
+**** alpha
+***** entropy
+5.6288489842111336
+***** energy
+0.008518011395317401
+**** beta
+***** entropy
+6.273898809262385
+***** energy
+0.004327472046322902
+**** gamma
+***** entropy
+6.575025605667392
+***** energy
+0.002259057850131269
+**** theta
+***** entropy
+5.41472312917697
+***** energy
+0.016819564053137396
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 12
+*** channel 1
+**** alpha
+***** entropy
+5.97752028708779
+***** energy
+0.005672814418605328
+**** beta
+***** entropy
+6.472984559372083
+***** energy
+0.003017166103695182
+**** gamma
+***** entropy
+6.594416489806532
+***** energy
+0.0022256087456314546
+**** theta
+***** entropy
+5.460962885370339
+***** energy
+0.011112876919383539
+*** channel 2
+**** alpha
+***** entropy
+5.974342510999836
+***** energy
+0.004979070492920707
+**** beta
+***** entropy
+6.474390999677794
+***** energy
+0.0026664993272622795
+**** gamma
+***** entropy
+6.595301936136499
+***** energy
+0.0020378630466119747
+**** theta
+***** entropy
+5.445242774374691
+***** energy
+0.009802337797065875
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+5.119631629942133
+***** energy
+0.002304782000594309
+**** beta
+***** entropy
+6.112788038885468
+***** energy
+0.0011573869071031869
+**** gamma
+***** entropy
+6.584294068452082
+***** energy
+0.00035152904150597065
+**** theta
+***** entropy
+5.5643509101892565
+***** energy
+0.004696583167160153
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+5.962692148470971
+***** energy
+0.0069432930440315585
+**** beta
+***** entropy
+6.44154542278812
+***** energy
+0.0035360813712707094
+**** gamma
+***** entropy
+6.593271837340836
+***** energy
+0.0017402261420193712
+**** theta
+***** entropy
+6.060519641070853
+***** energy
+0.013983908952205661
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 13
+*** channel 1
+**** alpha
+***** entropy
+6.010941677337689
+***** energy
+0.005899974101283917
+**** beta
+***** entropy
+6.501267993078346
+***** energy
+0.0028541622912595325
+**** gamma
+***** entropy
+6.589302644908518
+***** energy
+0.0018398483317269535
+**** theta
+***** entropy
+5.187655409384229
+***** energy
+0.011721128709025338
+*** channel 2
+**** alpha
+***** entropy
+6.068221613729204
+***** energy
+0.005353579673995022
+**** beta
+***** entropy
+6.509392215484596
+***** energy
+0.0025740668806498853
+**** gamma
+***** entropy
+6.589889658742471
+***** energy
+0.0017121686724137141
+**** theta
+***** entropy
+5.261263722861035
+***** energy
+0.010590270826381755
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+5.121938806829485
+***** energy
+0.0035052524395146854
+**** beta
+***** entropy
+6.256007160865011
+***** energy
+0.001933620568107163
+**** gamma
+***** entropy
+6.588602922433602
+***** energy
+0.0011059328273201681
+**** theta
+***** entropy
+5.1605086912550915
+***** energy
+0.006640974282039995
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+6.017515700241718
+***** energy
+0.00657356469530326
+**** beta
+***** entropy
+6.495588755243268
+***** energy
+0.0034841501153984353
+**** gamma
+***** entropy
+6.598449459401282
+***** energy
+0.0019466319079569242
+**** theta
+***** entropy
+5.77402900508231
+***** energy
+0.012920747999180162
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+** 14
+*** channel 1
+**** alpha
+***** entropy
+5.990326100867236
+***** energy
+0.006090158927774912
+**** beta
+***** entropy
+6.392835415389716
+***** energy
+0.002686718176839939
+**** gamma
+***** entropy
+6.48850678259997
+***** energy
+0.0011788235758153863
+**** theta
+***** entropy
+5.117103495986791
+***** energy
+0.012647203257409959
+*** channel 2
+**** alpha
+***** entropy
+5.954758346140584
+***** energy
+0.0054544459888769235
+**** beta
+***** entropy
+6.387072902149317
+***** energy
+0.002318331838728092
+**** gamma
+***** entropy
+6.488701876796882
+***** energy
+0.0009341885529933063
+**** theta
+***** entropy
+4.995647908636701
+***** energy
+0.011567586756701592
+*** channel 3
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 4
+**** alpha
+***** entropy
+5.8341289364591535
+***** energy
+0.004736588864558985
+**** beta
+***** entropy
+6.375127366120344
+***** energy
+0.0029121886550691855
+**** gamma
+***** entropy
+6.491075002221166
+***** energy
+0.002149455084211599
+**** theta
+***** entropy
+5.350888556299558
+***** energy
+0.007975395071806194
+*** channel 5
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 6
+**** alpha
+***** entropy
+6.0327431114165595
+***** energy
+0.005327572391107824
+**** beta
+***** entropy
+6.398702116109173
+***** energy
+0.003134190210995677
+**** gamma
+***** entropy
+6.490468061727179
+***** energy
+0.0021916831321303924
+**** theta
+***** entropy
+5.70708364844571
+***** energy
+0.009828348228123224
+*** channel 7
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
+*** channel 8
+**** alpha
+***** entropy
+nan
+***** energy
+nan
+**** beta
+***** entropy
+nan
+***** energy
+nan
+**** gamma
+***** entropy
+nan
+***** energy
+nan
+**** theta
+***** entropy
+nan
+***** energy
+nan
