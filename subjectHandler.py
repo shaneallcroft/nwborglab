@@ -1,13 +1,25 @@
-
+import pynwb
 import os
 from orgutils import orgutils
 from datetime import datetime as dt
+from SAPOFTO import SAPOFTO
+
 
 def createSubject(args):
     # survey user about subject information
+    #dotnwborglab = SAPOFTO(key='dotnwborglab', filename='.nwborglab.org')
+
+    #survey_node = dotnwborglab['SURVEYS']['SUBJECT CREATE']
+
+    for question_key in survey_node.key():
+        
+
+    
     if not os.path.isfile('.nwb.org'):
         print('NWBORG ERROR: not in the uppermost folder of an nwborg project.')
         return
+
+
     
     print('Create Subject!')
     subject_id = input('Please input the subject\'s ID, or press enter to autogenerate a new ID')
@@ -41,3 +53,29 @@ def createSubject(args):
     orgutils.dictToOrg(org_data=subject_dict,output_filename='subjects/' + subject_id + '/' + subject_id + '.org')
     print('subject info saved to subjects/' + subject_id + '.org')
     
+
+
+
+def subjectIdToNwbSubjectObject(subject_id):
+    subject_node = SAPOFTO(os.path.join('Subjects',str(subject_id),str(subject_id),'.org'))
+
+    subject_nwb = pynwb.file.Subject()
+    if 'AGE' in subject_node.keys():
+        subject_nwb.age = subject_node['AGE'].getValue()
+    if 'DESCRIPTION' in subject_node.keys():
+        subject_nwb.description = subject_node['DESCRIPTION'].getValue()
+    if 'GENOTYPE' in subject_node.keys():
+        subject_nwb.genotype = subject_node['GENOTYPE'].getValue()
+    if 'SEX' in subject_node.keys():
+        subject_nwb.sex = subject_node['SEX'].getValue()
+    if 'SPECIES' in subject_node.keys():
+        subject_nwb.species = subject_node['SPECIES'].getValue()
+    if 'SUBJECT_ID' in subject_node.keys():
+        subject_nwb.subject_id = subject_node['SUBJECT_ID'].getValue()
+    if 'WEIGHT' in subject_node.keys():
+        subject_nwb.weight = subject_node['WEIGHT'].getValue()
+    if 'STRAIN' in subject_node.keys():
+        subject_nwb.strain = subject_node['STRAIN'].getValue()
+    if 'DATE_OF_BIRTH' in subject_node.keys():
+        subject_nwb.date_of_birth = subject_node['DATE_OF_BIRTH'].getValue()
+    return subject_nwb

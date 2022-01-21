@@ -1,12 +1,12 @@
-* Subject ID
+* SUBJECT_ID
 0001
-* Species
+* SPECIES
 human
-* Age
+* AGE
 23 years
-* Sex
+* SEX
 M
-* Date of Birth
+* DATE_OF_BIRTH
 08/11/1998
-* Description
+* DESCRIPTION
 cool as hell

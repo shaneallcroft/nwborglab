@@ -1,21 +1,8 @@
-* experiment abstract
-  hello
-* Methods
-  a control session is necessary to capture the ability / approach of the player when given full control
-  over the game but WITH the added caveats  
-* experimenter
-  world
-* lab
-  shane
-* institution
-  here
-* subject mods
-** dev notes
-   org mode rocks! : ) 
-** programmatic
-*** init
-    whoa
-*** delete
-    wwooa
-*** read
-    wow
+* EXPERIMENT ABSTRACT
+this is where you can write about your experiment's abstract
+* EXPERIMENT CONTRIBUTORS
+write down the names of your research contributors here
+* LAB
+this is where you can specify which lab your experiment is affiliated with
+* EXPERIMENT RESULTS
+This is where you can record the big picture results of your experiment

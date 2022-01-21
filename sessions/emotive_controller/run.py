@@ -47,9 +47,9 @@ def main():
     input('refrain as much as possible from any exagerated or pronounced face muscle activity, including clenching jaw, grinning, etc as this will interfere with the eeg readings...')
     WINDOW_POINT_LENGTH = 1000 # at a rate of 250hz this is equal to 4 seconds
     if not args.debug == 1:
-        os.system('obs-studio --startrecording --scene "emotive-controller-test"')
-        os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_1 &') # the & at the end makes it asynchronous
-        os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_2 &') # the & at the end makes it asynchronous  
+        #os.system('obs-studio --startrecording --scene "emotive-controller-test"')
+        #os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_1 &') # the & at the end makes it asynchronous
+        #os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_2 &') # the & at the end makes it asynchronous  
         os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_3 &') # the & at the end makes it run in parallel
     last_window_end_idx = 0
     brain_input_count = 0

@@ -1,9 +1,6 @@
+import math
 
-####################################
-#         OrgUtils object
-####################################
-
-class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
+class SAPOFTO: # SHANE's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
     counter = 0
     def __init__(self, key, content='', filename='', level=1):  # TODO maybe make defaults, especially a universal spear
         self.level = level            
@@ -17,15 +14,19 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
         self.separator = '\n'
         self.translationCode = ''
         self.value_is_str = True
+        self.priority_value = 0
+        #self.degreesOfConstraint = 0
+        
         if not filename == '':
             with open(filename, 'r') as f:
                  content = f.read()
+
         
         self.rawContent = content
         self.contentOrdered = [] # notably the 'value' of the node is not captured in the ordered version w
         
         if (content == '' or content is None):
-            return
+            return 
             
         line_count = 0
     
@@ -87,14 +88,14 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
                     begin_tag = tag
                     tags_cpy.remove(tag)
                     continue
-            ret_str += '\n#+'.join(tags_cpy) + '\n'
+            ret_str += '#+' + '\n#+'.join(tags_cpy) + '\n'
             if ret_str.endswith('\n\n'):
                 ret_str = ret_str[:-1]
             if begin_tag != '':
-                ret_str += '#+' + begin_tag + '\n'            
+                ret_str += '#+' + begin_tag + '\n'
         if not str(self.getValue()) == '':
             ret_str += str(self.content['\n* ']) + '\n'
-        if end_tag != '':                
+        if end_tag != '':
             ret_str += '#+' + end_tag + '\n'
         
         for node in self.contentOrdered:
@@ -109,6 +110,13 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
 #        if self.content[key].isLeaf:
 #            return self.content[key].getValue()
         # probably can't do shit like this damn
+        #ret_val = None TODO this would be cool when i'm less tired
+        #if isinstance(key, SAPOFTO):
+        #    for child_key in key.keys():
+        #        if child_key in self.keys():
+        #            ret_val = self[key]
+            
+
         if key not in self.keys():
             key = key.upper()
         return self.content[key]
@@ -119,8 +127,16 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
 #        if self.content[key].isLeaf:
 #            return self.content[key].getValue()
         # probably can't do shit like this damn
+        
+        #if isinstance(item, SAPOFTO) and not item is self.content[subscript]:
+        #    item.
+        
         self.content[subscript] = item
         return
+
+    def append(self, data):
+        value = str(self.getValue())
+        self.setValue(str(value) + str(data))
 
     def keys(self):
         ret_list = list(self.content.keys())
@@ -184,6 +200,9 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
         return ''
 
     def getPriorityValue(self):
+        #
+        # Due to the restricted namespace inside this function, priority number is not cast
+        # to in int just in case contextually it should be evaluated instead.
         priority_tag = self.searchTagByStartsWith('priority')
         if priority_tag == '':
             return '0'
@@ -193,6 +212,25 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
 
     def removeTag(self, tag_to_remove):
         self.tags.remove(tag_to_remove)
+
+
+    def treeSearchByTag(self, search_tag):
+        matching_nodes = []
+        for child_node in self.contentOrdered:
+            if child_node.searchTagByStartsWith(search_tag) != '':                
+                matching_nodes.append(child_node)
+            mamtching_nodes.extend(child_node.treeSearchByTag(search_tag))
+        return matching_nodes
+
+    def treeSearchByKey(self, search_key):
+        matching_nodes = []
+        for child_node in self.contentOrdered:
+            if child_node.getHeadKey() == search_key:
+                matching_nodes.append(child_node)
+            mamtching_nodes.extend(child_node.treeSearchByKey(search_tag))
+        return matching_nodes
+
+
         
     def addChild(self, child, index=-1):
         self.content[child.key] = child
@@ -260,6 +298,7 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
 
     def castOrgLiteral(self):
         # TODO maybe include the tags here??
+        
         ret_str = self.content['\n* '].strip() + '\n'
         for child_node in self.contentOrdered:
             child_node.promote(1)
@@ -323,7 +362,7 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
         return eval('lambda ' + variable_declaraction_csv + ' : ' + self.content['\n* '].strip())
         
         
-    def lineList(self, conditional=True):
+    def lineList(self, with_tab=False,tab_displacement=0,conditional=True):
         lines = self.getValue().split('\n')
         ret_val = []
         if not conditional:
@@ -331,8 +370,43 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
         for line in lines:
             if line == '':
                 continue
-            ret_val.append(line.strip())
+            if with_tab:
+                tab_lev = math.ceil(float(len(line) - len(line.strip()))/float(len(self.tab)))
+                ret_val.append(self.tab * (int(tab_lev)+tab_displacement) + line.strip())
+            else:
+                ret_val.append(line.strip())
         return ret_val
+
+
+
+    # Right now it isn't possible to have an await statement inside a conditional or loop, this should be possible
+    # but requires probably a markup added while parsing and requires a tweak to the code that executes the blocks.
+    #
+    def getValueAsPythonBlockList(self, conditional=True): 
+        if not 'BEGIN_SRC python' in self.tags:
+            print('WARNING pythonStatementList function being called on non code node')
+        lines = self.getValue().split('\n')
+        ret_val = []
+        if not conditional:
+            return ret_val
+        current_block = ''
+        
+        for line in lines:
+            if line == '':
+                continue
+            if line.startswith('  '):
+                line = line.strip()
+            if line.startswith('await '):
+                if not current_block == '':
+                    ret_val.append(current_block)
+                    current_block = ''
+                ret_val.append(line)
+            else:
+                current_block += line + '\n'
+        if not current_block == '':
+            ret_val.append(current_block)
+        return ret_val
+
     #def export(self, keyword):
     #    print('TODO implement export')
     # think about this more ^^^
@@ -347,8 +421,8 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
         vacancies_filled_count = 0
 
         new_val = ''
-        for i in range(0,len(value_list)+1):
-            if not (i % 2):
+        for i in range(0,len(value_list)):
+            if  bool(i % 2):
                 parameter_key = value_list[i]
                 if parameter_key in prototype_parameters.keys():
                     vacancies_filled_count += 1
@@ -359,7 +433,7 @@ class SAPOFTO: # Guava's ALL PUPOSE ORG FILE TREE OBJECT (org is at the center)
                     new_val += '%-%-%'
 
             else:
-                new_val += value_lisit[i]
+                new_val += value_list[i]
         if vacancies_filled_count == 0:
             return 0
         self.setValue(new_val)

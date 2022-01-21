@@ -47,7 +47,7 @@ def init(args):
     tab = '    '
     half_tab = '  '
 
-    
+    print('args')
     if os.path.isfile('.nwborglab.org'):
         print('ERROR: This directory is already the root of an nwborg project.')
         return
