@@ -1,0 +1,8 @@
+* EXPERIMENT ABSTRACT
+this is where you can write about your experiment's abstract
+* EXPERIMENT CONTRIBUTORS
+write down the names of your research contributors here
+* LAB
+this is where you can specify which lab your experiment is affiliated with
+* EXPERIMENT RESULTS
+This is where you can record the big picture results of your experiment

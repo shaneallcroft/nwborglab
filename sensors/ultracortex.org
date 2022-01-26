@@ -1,57 +1,57 @@
-* description
+* DESCRIPTION
   ultracortex headsets
-* specs
-** data type
+* SPECS
+** DATA TYPE
    EEG
-** channel count
+** CHANNEL COUNT
    8
-** refresh rate
+** REFRESH RATE
    250 hz
-** unit
+** UNIT
    v
-* electrode config
+* ELECTRODE CONFIG
 ** 1
-*** location
+*** LOCATION
     FP0
-*** description
+*** DESCRIPTION
     flat tip type
 ** 2
-*** location
+*** LOCATION
     FP1
-*** description
+*** DESCRIPTION
     flat tip type
 ** 3
-*** location
+*** LOCATION
     FP2
-*** description
+*** DESCRIPTION
     spiked tip type
 ** 4
-*** location
+*** LOCATION
     FP3
-*** description
+*** DESCRIPTION
     spiked tip type
 ** 5
-*** location
+*** LOCATION
     FP4
-*** description
+*** DESCRIPTION
     spiked tip type
 ** 6
-*** location
+*** LOCATION
     FP5
-*** description
+*** DESCRIPTION
     spiked tip type
 ** 7
-*** location
+*** LOCATION
     FP6
-*** description
+*** DESCRIPTION
     spiked tip type
 ** 8
-*** location
+*** LOCATION
     FP7
-*** description
+*** DESCRIPTION
     spiked tip type
-* programmatic
-** initial
+* CODE
+** INITIAL
 #+BEGIN_SRC python
   import brainflow as bf
   from brainflow.board_shim import BoardShim, BrainFlowInputParams
@@ -66,15 +66,15 @@
   WINDOW_LENGTH = 4.0
   cyton_board = nwbfile.create_device(name='cyton_board')
   ultracortex_config = orgutils.orgToDict(filename=nwborg_root_path+'sensors/ultracortex.org')
-  ultracortex_description = ultracortex_config['description']
+  ultracortex_description = ultracortex_config['DESCRIPTION']
   
   electrode_group = nwbfile.create_electrode_group('ultracortex',description=ultracortex_description,location="worn on the user's head",device=cyton_board)
   
   idx = 0
-  for electrode in ultracortex_config['electrode config'].keys():
+  for electrode in ultracortex_config['ELECTRODE CONFIG'].keys():
       idx += 1
-      electrode_description = ultracortex_config['electrode config'][electrode]['description']
-      electrode_location = ultracortex_config['electrode config'][electrode]['location']
+      electrode_description = ultracortex_config['ELECTRODE CONFIG'][electrode]['DESCRIPTION']
+      electrode_location = ultracortex_config['ELECTRODE CONFIG'][electrode]['LOCATION']
       nwbfile.add_electrode(id=int(electrode), location=electrode_location, filtering='none',group=electrode_group,x=0.0,y=0.0,z=0.0,imp=float(idx))
       print('hello from inside ultracortex.org initial')
       # arg parse stuff
@@ -129,7 +129,7 @@
   channel_7 = [] #np.array([0] * int(sampling_rate * WINDOW_LENGTH))
   channel_8 = []#np.array([0] * int(sampling_rate * WINDOW_LENGTH))  
 #+END_SRC
-** loop
+** LOOP
 #+BEGIN_SRC python
   eeg_data = board.get_board_data()
   eeg_formatted = list()
@@ -159,27 +159,27 @@
   time.sleep(sleep_duration)
   
 #+END_SRC
-** terminal
+** TERMINAL
 #+BEGIN_SRC python
   board.stop_stream()
   board.release_session()
   print('session released')
   # ACTUAL TODO move what you can of this parameters into orgutils parsing this file
-  electrode_table_region = nwbfile.create_electrode_table_region(list(range(0,len(ultracortex_config['electrode config'].keys()))), 'all of the ultracortex electrodes')
-  nwb_eeg_ts = ElectricalSeries('ultracortex eeg data',nwb_eeg_ts_raw,electrode_table_region,starting_time=0.0,rate=float(sampling_rate),resolution=.001,comments='data read in from an ultracortex mark IV headset', description=skeleton['description'])
+  electrode_table_region = nwbfile.create_electrode_table_region(list(range(0,len(ultracortex_config['ELECTRODE CONFIG'].keys()))), 'all of the ultracortex electrodes')
+  nwb_eeg_ts = ElectricalSeries('ultracortex eeg data',nwb_eeg_ts_raw,electrode_table_region,starting_time=0.0,rate=float(sampling_rate),resolution=.001,comments='data read in from an ultracortex mark IV headset', description=skeleton['description'].getValue())
   nwbfile.add_acquisition(nwb_eeg_ts)
 #+END_SRC       
-* dev notes
-** Important Variables
-*** eeg_data
+* DEV NOTES
+** IMPORTANT VARIABLES
+*** EEG_DATA
   - eeg_data is where the most recent read from the board is stored during the loop
-** Board Variables
+** BOARD VARIABLES
 *** sampling_rate
     250 hz
-*** eeg_channels
+*** EEG_CHANNELS
     - array with all (presumably) the indexes of the eeg channels from the raw data
-*** channel_1 - 8
+*** CHANNEL_1 - 8
     - variables channel_1 through channel_8 will hold effective timeseries for the individual channels
-* other notes
+* OTHER NOTES
   - medium size
   - it is so cool, it is very cool, oh yeah

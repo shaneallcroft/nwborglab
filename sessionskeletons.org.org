@@ -1,0 +1,13 @@
+
+* EXAMPLE SKELETON
+this is an example of a session skeleton. An actual session skeleton one should have a descriptive name in place of "* EXAMPLE SKELETON" this will be used to identify the session in code
+#+
+** SUBJECT ROLES
+write down the names of your research contributors here
+#+
+*** EXAMPLE ROLE
+*** EXAMPLE ROLE
+**** STIMULI
+**** SENSORS
+**** SURVEY
+**** OTHER NOTES

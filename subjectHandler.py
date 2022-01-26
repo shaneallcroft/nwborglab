@@ -2,16 +2,16 @@ import pynwb
 import os
 from orgutils import orgutils
 from datetime import datetime as dt
-from SAPOFTO import SAPOFTO
+import SAPOFTO
 
 
-def createSubject(args):
+def createSubject(args, subject_id=None):
     # survey user about subject information
-    #dotnwborglab = SAPOFTO(key='dotnwborglab', filename='.nwborglab.org')
+    #dotnwborglab = SAPOFTO.SAPOFTO(key='dotnwborglab', filename='.nwborglab.org')
 
     #survey_node = dotnwborglab['SURVEYS']['SUBJECT CREATE']
 
-    for question_key in survey_node.key():
+    #for question_key in survey_node.key():
         
 
     
@@ -22,7 +22,8 @@ def createSubject(args):
 
     
     print('Create Subject!')
-    subject_id = input('Please input the subject\'s ID, or press enter to autogenerate a new ID')
+    if subject_id == None:
+        subject_id = input('Please input the subject\'s ID, or press enter to autogenerate a new ID')
     if subject_id == '':
         subject_files = os.listdir('subjects')
         largest_id = 0
@@ -57,7 +58,7 @@ def createSubject(args):
 
 
 def subjectIdToNwbSubjectObject(subject_id):
-    subject_node = SAPOFTO(os.path.join('Subjects',str(subject_id),str(subject_id),'.org'))
+    subject_node = SAPOFTO.SAPOFTO(os.path.join('Subjects',str(subject_id),str(subject_id),'.org'))
 
     subject_nwb = pynwb.file.Subject()
     if 'AGE' in subject_node.keys():

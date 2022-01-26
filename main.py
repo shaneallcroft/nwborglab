@@ -2,7 +2,7 @@ import argparse
 import initHandler
 import subjectHandler
 import sessionHandler
-
+import scheduleHandler
 
 def main():
     parser = argparse.ArgumentParser('Takes in parameters for nwborg to run')
@@ -25,7 +25,7 @@ def main():
         initHandler.init(command_args)
 
     if command == 'schedule':
-        scheduleHandler(command_args)
+        scheduleHandler.schedule(command_args)
         
     if command == 'assign':
         assignHandler(command_args)
