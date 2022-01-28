@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+scripts/nwborglab
+src/.NWBORGLAB.org
+src/.nwborglab.org
+src/.nwborglabsrc.org
+src/nwborglab.egg-info/PKG-INFO
+src/nwborglab.egg-info/SOURCES.txt
+src/nwborglab.egg-info/dependency_links.txt
+src/nwborglab.egg-info/top_level.txt

@@ -1,0 +1,26 @@
+
+* SUBJECT ROLES
+** VIEWER
+*** STIMULI
+     a deap dataset video
+
+*** SENSORS
+     ultracortex
+
+*** OTHER NOTES
+     the movie is so cool
+
+*** SURVEY
+     - Looking at the SAM.png image, Where do you fall on the top row scale? left to right
+       1-9, top row (valence)...
+     - Looking at the SAM.png image, Where do you fall on the top row scale? left to right
+       1-9, top row (excitation)...
+
+*** SUBJECT ID
+0001
+* ARCHETYPE
+calibrate
+* DATE
+2022-01-22 18:31:27.038342
+* SESSION SUPERVISOR
+shane

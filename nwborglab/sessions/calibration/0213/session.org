@@ -1,0 +1,18 @@
+* subject roles
+** viewer
+*** stimuli
+a deap dataset video
+*** sensors
+ultracortex
+*** other notes
+the movie is so cool
+*** survey
+fuck you
+*** subject id
+0001
+* archetype
+calibration
+* date
+2021-12-03 15:39:54.921723
+* session supervisor
+Shane Allcroft

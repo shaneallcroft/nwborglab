@@ -1,0 +1,401 @@
+* CALIBRATION
+** description
+   The calibration session is single subject, and does not use EEG as input for
+   anything interactive.
+
+   Extracts the features from the subject's EEG readings and saves them in the
+   the subject's calibration folder
+
+   You will prepare the 
+   (EEG saved in NWB file under measures microvolts (uV)
+   
+** subject roles
+*** viewer
+**** stimuli
+     a deap dataset video
+     
+**** sensors
+     ultracortex
+     
+**** other notes
+     the movie is so cool
+     
+**** survey
+     - Looking at the SAM.png image, Where do you fall on the top row scale? left to right
+       1-9, top row (valence)...
+     - Looking at the SAM.png image, Where do you fall on the top row scale? left to right
+       1-9, top row (excitation)...
+       
+** nwb unit columns
+*** valence
+    the level of valence self reported by the subject after watching the video, on a scale
+    from 1-9. sam rating scale image presented with the question -- experiment-media/sam.png
+    
+*** exitation
+    the level of excitation self reported by the subject after watching the video, on a scale
+    from 1-9. sam rating scale image presented with the question -- experiment-media/sam.png
+    
+*** videourl
+    URL to the DEAP video
+    
+*** deapemotiontag
+    the emotion tag on the video
+    
+** programmatic
+*** initial
+#+BEGIN_SRC python
+  # programmtic implementation based on
+  #https://content.iospress.com/download/technology-and-health-care/thc174836?id=technology-and-health-care%2Fthc174836
+  
+  # ACTUAL TODO add survey about DEAPU
+  # ACTUAL TODO add / look into adding nwb processing modules
+  # ACTUAL TODO look into making org file in subject folder detailing their progress with the DEAP videos
+  from brainflow.data_filter import DataFilter, FilterTypes, AggOperations
+  from scipy.stats import entropy
+  import pandas as pd
+  print('Please select and input a DEAP data-set video for the subject to watch now')
+  video_link = input('DEAP video URL...')
+  deapemotiontag = input("If avialable, please provide the video's DEAP emotion tag (cheerful, sentimental, calm etc)....")
+  if deapemotiontag == '':
+      deapemotiontag = '!!!unknown!!!'
+  
+  print('Please prepare subject for viewing session:')
+  print('  - in a separate terminal window navigate to `experiment-media` in your nwborg project root folder and run `feh SAM.png`')
+  print('  - Look at the timestamps for the video specified in the DEAP dataset, prepare to play the video starting at the appropriate timestamp')
+  print('  - Using a timer or watching the video progress bar, prepare to stop the video at the appropriate timestamp\n')
+  input("When you're ready: press Enter in this window. The recording session will begin. Wait 3 seconds and then press the play button to begin playing the video")
+  subject_id = session_dict['subject roles']['viewer']['subject id']
+  
+  if os.path.isfile('subjects/' + str(subject_id) + '/calibration_knn.org'):
+      session_knn_points = orgutils.orgToDict(filename=('subjects/' + str(subject_id) + '/calibration_knn.org'))
+  else:
+      session_knn_points = {}
+  feature_point_list = []
+  eeg_data_channel_list = []
+#+END_SRC
+*** loop
+#+BEGIN_SRC python    
+  # the only thing to do in here is make sure the eeg_data_channel list is up to date
+  # because the session code is injected after the hardware code, it always will be up to date at the end of each loop iteration
+  print(eeg_data)
+  eeg_data_channel_list = [channel_1,channel_2,channel_3,channel_4,channel_5,channel_6,channel_7,channel_8]
+#+END_SRC       
+*** terminal
+#+BEGIN_SRC python
+  # actual todo add arguments for the different dimensions
+  # session_path
+  #if os.path.isfile('subjects/' + str(subject_id) + '/calibration_knn.csv'):
+  #    calibration_csv = pd.read_csv('subjects/' + str(subject_id) + '/calibration_knn.csv') # read in the csv 
+  #else:
+  #    calibration_csv = pd.Dataframe(columns=['alpha_entropy','alpha_energy','beta_entropy','beta_energy','gamma_entropy','gamma_energy','theta_entropy','theta_energy','valence','exitement'])
+  # calibration_csv.to_csv('subjects/' + str(subject_id) + '/calibration_knn.csv')
+  # enter all the calibration data into the dataframe as rows
+  
+  
+  print('\n(questions for the subject)')
+  print('please direct your attention to the emotional scale image and answer the following questions based on your experience watching the video:')
+  session_knn_points[video_link] = {}
+  sam_valence = input('where do you fall on the top row scale? left to right 1-9, top row (valence)...')
+  session_knn_points[video_link]['VALENCE'] = sam_valence
+  sam_excitation = input('where do you fall on the middle row scale? left to right 1-9 middle row (excitation)...')
+  session_knn_points[video_link]['EXCITATION'] = sam_excitation
+  nwbfile.add_unit(id=1,valence=int(sam_valence),excitation=int(sam_excitation),videourl=video_link,deapemotiontag=deapemotiontag)
+  
+  
+  
+  # Pick it up, what needs to happen is nwb_eeg_ts needs to be iterated over with half windows of 500 (2 seconds)
+  # With features being captured at resolutions of 1 window or 4 seconds 1000 points
+  # basically the code from loop translated to be at the end when looping over all this shtuff
+  
+  half_window_count = int(len(nwb_eeg_ts_raw)/500) # the number of half windows across the frame of the session
+  #print(len(nwb_eeg_ts.data))
+  #print(len(nwb_eeg_ts_raw))
+  print('window count', half_window_count * 2)
+  # use channel list
+  for window_idx in range(half_window_count):
+      if bool(window_idx): # if it isn't the 0 index window
+          knn_feature_point = {}
+          for channel_number, channel in enumerate(eeg_data_channel_list):
+              channel_number = eeg_channels[channel_number]
+              print(channel_number)
+              numpy_channel = np.array(channel[(window_idx * 500):((window_idx * 500) + 1000)])
+  
+              # ACTUAL TODO TEST vvvvv change back or investigate further
+              normalized_channel = (numpy_channel - numpy_channel.min()) / (numpy_channel.max() - numpy_channel.min())
+              #^^^^^^ using min-max normalization ^^^^^^
+              window_data = normalized_channel
+              alpha_band = window_data.copy()
+              beta_band = window_data.copy()
+              gamma_band = window_data.copy()
+              theta_band = window_data.copy()
+              #print('before theta bandpass:\n',window_data)
+              DataFilter.perform_bandpass(data=theta_band,sampling_rate=250,center_freq=6.0,band_width=4.0,order=1,filter_type=0,ripple=0.0)
+              #print('after theta bandpass:\n',window_data,'\n\n\n')
+              DataFilter.perform_bandpass(data=alpha_band,sampling_rate=250,center_freq=12.0,band_width=8.0,order=1,filter_type=0,ripple=0.0)
+              DataFilter.perform_bandpass(data=beta_band,sampling_rate=250,center_freq=24.0,band_width=16.0,order=1,filter_type=0,ripple=0.0)
+              DataFilter.perform_bandpass(data=gamma_band,sampling_rate=250,center_freq=48.0,band_width=32.0,order=1,filter_type=0,ripple=0.0)
+  
+              #print(alpha_band)
+              #print(beta_band)
+              #print(gamma_band)
+              #print(theta_band)
+              # if needed you should convert the bands to np again if datafilter doesn't return an np array
+              # REAL ACTUAL TODO you gotta do DWT
+              #print('alpha band: ', alpha_band)
+              #print(entr(list(alpha_band)))
+              knn_feature_point['channel ' + str(channel_number)] = {'alpha' : {'entropy' : entropy(np.square(alpha_band)),
+                                                                                'energy'  : alpha_band.sum() * .004},
+                                                                     'beta'  : {'entropy' : entropy(np.square(beta_band)),
+                                                                                'energy'  : beta_band.sum() * .004},
+                                                                     'gamma' : {'entropy' : entropy(np.square(gamma_band)),
+                                                                                'energy'  : gamma_band.sum() * .004},
+                                                                     'theta' : {'entropy' : entropy(np.square(theta_band)),
+                                                                                'energy'  : theta_band.sum() * .004}}
+              #beta_features = [beta_band/beta_band.sum(axis=1,keepdims=True),]
+              #gamma_features = [gamma_band/gamma_band.sum(axis=1,keepdims=True),]
+              #theta_features = [theta_band/theta_band.sum(axis=1,keepdims=True),]
+              session_knn_points[video_link][str(window_idx)] = knn_feature_point
+  orgutils.dictToOrg(org_data=session_knn_points,output_filename=('subjects/' + str(subject_id) + '/calibration_knn.org'))
+  
+#+END_SRC       
+* MANUAL CONTROLLER
+** description
+   mario sunshine get pumped
+** subject roles
+*** player
+**** stimuli
+     super mario sunshine
+**** sensors
+     ultracortex
+**** other notes
+     level 2
+**** survey
+     fuck you
+** programmatic
+*** initial
+#+begin_src python
+  from brainflow.data_filter import Datafilter
+  # emotive controller initial:
+  parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
+                        required=false, default='/home/shaneallcroft/.local/share/dolphin-emu/Pipes/pipe1')
+  
+  
+  # REAL ACTUAL TODO make the savestates for the game and save them in experiment/media
+  input('Beginning emotive controller test session, please make sure the subject is wearing the ultracortex headset...')
+  input('this test will take video recording, please ensure the webcam is properly setup and the "emotive-controller-test" scene on OBS is properly configured...')
+  input('refrain as much as possible from any exagerated or pronounced face muscle activity, including clenching jaw, grinning, etc as this will interfere with the eeg readings...')
+  
+  #os.system('obs-studio --startrecording --scene "emotive-controller-test"')
+  #os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_1 &') # the & at the end makes it asynchronous
+  #os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_2 &') # the & at the end makes it asynchronous  
+  os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s experiment-media/savestates/savestate1.sav &') # the & at the end makes it run in parallel
+#+end_src
+*** loop
+#+begin_src python
+  # emotive controller loop:
+  # requires sensors/ultracortex.org
+  coefficients = datafilter.perform_wavelet_transform(egg_data)
+  
+#+end_src
+*** terminal
+#+begin_src python
+  # emotive controller terminal:
+  os.system('cp experiment-media/webcam-recordings-temp/* ' + 'subjects/'+session_dict['subject roles']['player']['subject id'])
+  os.system('mv experiment-media/webcam-recordings-temp/* ' + 'sessions/'+session_dict['archetype'] + '/' + str(session_id))
+#+end_src
+
+* EMOTIVE CONTROLLER
+** description
+   Using subject EEG, maps the knn 2D classification onto controller inputs
+** subject roles
+*** player
+**** stimuli
+     super mario sunshine
+**** sensors
+     ultracortex
+**** other notes
+     level 2
+**** survey
+     How much do you like Mario? Would you consider Mario a friend of yours?
+** programmatic
+*** initial
+#+BEGIN_SRC python
+  from brainflow.data_filter import DataFilter
+  import numpy as np
+  from scipy.stats import entropy
+  # emotive controller initial:
+  parser.add_argument('--pipe-path', type=str, help='the path to the controller input pipe',
+                        required=False, default='/home/shaneallcroft/.local/share/dolphin-emu/Pipes/pipe1')
+  parser.add_argument('--debug', type=int, help='the path to the controller input pipe',required=False, default=0)
+  args, unknown = parser.parse_known_args()
+  pipe_path = args.pipe_path
+  print('post session skeleton initial parsing args:', args)
+  subject_id = session_dict['subject roles']['player']['subject id']
+  # REAL ACTUAL TODO make the savestates for the game and save them in experiment/media
+  if not os.path.isfile('subjects/' + str(subject_id) + '/calibration_knn.org'):
+      print('ERROR calibration knn missing for subject ' + str(subject_id))
+      print('calibration knn required for emotive controller use')
+      print("run 'nwborg session quickstart calibration' to get started")
+      return
+  else:
+      subject_calibration_knn = orgutils.orgToDict(filename=('subjects/' + str(subject_id) + '/calibration_knn.org'))
+      # read in the player's calibration knn
+  input('Beginning emotive controller test session, please make sure the subject is wearing the ultracortex headset...')
+  input('this test will take video recording, please ensure the webcam is properly setup and the "emotive-controller-test" scene on OBS is properly configured...')
+  input('refrain as much as possible from any exagerated or pronounced face muscle activity, including clenching jaw, grinning, etc as this will interfere with the eeg readings...')
+  WINDOW_POINT_LENGTH = 1000 # at a rate of 250hz this is equal to 4 seconds
+  if not args.debug == 1:
+      #os.system('obs-studio --startrecording --scene "emotive-controller-test"')
+      #os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_1 &') # the & at the end makes it asynchronous
+      #os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s PATH_TO_SAVE_STATE_2 &') # the & at the end makes it asynchronous  
+      os.system('dolphin-emu -e experiment-media/sms_gcube.nkit.iso -s "./experiment-media/savestates/savestate1.sav" &') # the & at the end makes it run in parallel
+  
+  last_window_end_idx = 0
+  brain_input_count = 0
+  knn_k = 3 # k value for knn
+  calibration_knn_points = [] # 
+  for url, calibration_dict in subject_calibration_knn.items():
+      video_valence = calibration_dict['VALENCE']
+      video_excitation = calibration_dict['EXCITATION']
+      for knn_window_idx, knn_window_data in calibration_dict.items():
+          if knn_window_idx == 'VALENCE': # pick it up
+              continue
+          if knn_window_idx == 'EXCITATION':
+              continue
+          single_knn_point_features = []
+          for channel_name, channel_data in knn_window_data.items():      
+              single_knn_point_features.append(channel_data['alpha']['entropy'])
+              single_knn_point_features.append(channel_data['alpha']['energy'])
+              single_knn_point_features.append(channel_data['beta']['entropy'])
+              single_knn_point_features.append(channel_data['beta']['energy'])
+              single_knn_point_features.append(channel_data['gamma']['entropy'])
+              single_knn_point_features.append(channel_data['gamma']['energy'])
+              single_knn_point_features.append(channel_data['theta']['entropy'])
+              single_knn_point_features.append(channel_data['theta']['energy'])
+          #alpha_band = knn_window['channel ' + str(int(knn_window_idx)]
+          calibration_knn_points.append({'features' : single_knn_point_features,
+                                         'VALENCE':video_valence,
+                                         'EXCITATION':video_excitation})
+  
+  #print('DEBUG subject calibration points: ', calibration_knn_points)
+  controller_fifo = open(pipe_path, 'w')
+#+END_SRC
+*** loop
+#+BEGIN_SRC python
+  # emotive controller loop:
+  # requires sensors/ultracortex.org
+  # coefficients = datafilter.perform_wavelet_transform(egg_data)
+  eeg_data_channel_list = [channel_1,channel_2,channel_3,channel_4,channel_5,channel_6,channel_7,channel_8]
+  #print('nwb_eeg_ts_raw length: ', len(nwb_eeg_ts_raw))
+  #print('last_window_end_idx: ', last_window_end_idx)
+  #print('WINDOW_POINT_LENGTH: ', WINDOW_POINT_LENGTH)
+  if len(nwb_eeg_ts_raw) - last_window_end_idx < WINDOW_POINT_LENGTH: # window not large enough yet
+      #print('Session: emotive controller waiting for input' + str(brain_input_count) + ' more data...')
+      abcde = 2
+  else:
+      knn_feature_point = {}
+      current_brain_features = []
+      distance_record = {}
+      for channel_number, channel in enumerate(eeg_data_channel_list):
+          channel_number = eeg_channels[channel_number]
+          numpy_channel = np.array(channel)[int((len(nwb_eeg_ts_raw) - WINDOW_POINT_LENGTH)):len(nwb_eeg_ts_raw)]
+          # REAL ACTUAL TODO if [int((len(nwb_eeg_ts_raw) - WINDOW_POINT_LENGTH)):len(nwb_eeg_ts_raw)]
+          # works you have to make sure you're calibrating with consideration to the same kind of window
+  
+          # ACTUAL TODO TEST vvvvv change back or investigate further
+          normalized_channel = (numpy_channel - numpy_channel.min()) / (numpy_channel.max() - numpy_channel.min())
+          #^^^^^^ using min-max normalization ^^^^^^
+          window_data = normalized_channel # ACTUAL TODO MAKE SURE YOU SHOULDN"T BE NORMALIZAING HERE INSTEAD
+          alpha_band = window_data.copy()
+          beta_band = window_data.copy()
+          gamma_band = window_data.copy()
+          theta_band = window_data.copy()
+          #print('before theta bandpass:\n',window_data)
+          DataFilter.perform_bandpass(data=theta_band,sampling_rate=250,center_freq=6.0,band_width=4.0,order=1,filter_type=0,ripple=0.0)
+          #print('after theta bandpass:\n',window_data,'\n\n\n')
+          DataFilter.perform_bandpass(data=alpha_band,sampling_rate=250,center_freq=12.0,band_width=8.0,order=1,filter_type=0,ripple=0.0)
+          DataFilter.perform_bandpass(data=beta_band,sampling_rate=250,center_freq=24.0,band_width=16.0,order=1,filter_type=0,ripple=0.0)
+          DataFilter.perform_bandpass(data=gamma_band,sampling_rate=250,center_freq=48.0,band_width=32.0,order=1,filter_type=0,ripple=0.0)
+  
+          #print(alpha_band)
+          #print(beta_band)
+          #print(gamma_band)
+          #print(theta_band)
+          # if needed you should convert the bands to np again if datafilter doesn't return an np array
+          # REAL ACTUAL TODO you gotta do DWT
+          #print('alpha band: ', alpha_band)
+          #print(entr(list(alpha_band)))
+          knn_feature_point['channel ' + str(channel_number)] = {'alpha' : {'entropy' : entropy(np.square(alpha_band)),
+                                                                            'energy'  : alpha_band.sum() * .004},
+                                                                 'beta'  : {'entropy' : entropy(np.square(beta_band)),
+                                                                            'energy'  : beta_band.sum() * .004},
+                                                                 'gamma' : {'entropy' : entropy(np.square(gamma_band)),
+                                                                            'energy'  : gamma_band.sum() * .004},
+                                                                 'theta' : {'entropy' : entropy(np.square(theta_band)),
+                                                                            'energy'  : theta_band.sum() * .004}}
+          # 
+          # this is prototype formatting
+          current_brain_features.append(knn_feature_point['channel ' + str(channel_number)]['alpha']['entropy'])
+          current_brain_features.append(knn_feature_point['channel ' + str(channel_number)]['alpha']['energy'])
+          current_brain_features.append(knn_feature_point['channel ' + str(channel_number)]['beta']['entropy'])
+          current_brain_features.append(knn_feature_point['channel ' + str(channel_number)]['beta']['energy'])
+          current_brain_features.append(knn_feature_point['channel ' + str(channel_number)]['gamma']['entropy'])
+          current_brain_features.append(knn_feature_point['channel ' + str(channel_number)]['gamma']['energy'])
+          current_brain_features.append(knn_feature_point['channel ' + str(channel_number)]['theta']['entropy'])
+          current_brain_features.append(knn_feature_point['channel ' + str(channel_number)]['theta']['energy'])
+  
+          #beta_features = [beta_band/beta_band.sum(axis=1,keepdims=True),]
+          #gamma_features = [gamma_band/gamma_band.sum(axis=1,keepdims=True),]
+          #theta_features = [theta_band/theta_band.sum(axis=1,keepdims=True),]
+          # dist = np.linalg.norm(a-b)
+  
+          # use distance_record.keys().sort to iterate over it when it comes time to round up the points
+  
+      current_brain_features = np.array(current_brain_features,dtype='float64')
+      for calibration_point in calibration_knn_points:
+          calibration_point_features = np.array(calibration_point['features'],dtype='float64')
+          distance = np.linalg.norm(calibration_point_features - current_brain_features)
+          if not (distance in distance_record.keys()):
+              distance_record[distance] = []
+          distance_record[distance].append(calibration_point)
+  
+      # find the k closest points
+      canon_input_points = []      
+      ordered_point_dist_list = list(distance_record.keys())
+      ordered_point_dist_list.sort()
+      for point_distance in ordered_point_dist_list:
+          for point in distance_record[point_distance]:
+              canon_input_points.append(point)
+              if len(canon_input_points) > knn_k:
+                  break
+          if len(canon_input_points) > knn_k:
+              break
+      # alright dope, we have the canon points now
+      #knn_voting_dict = {'VALENCE' : {}, 'EXCITATION' : {}}
+      # TODO ACTUAL TODO FIX THE VOTING PROCESS
+      valence_total = 0.0
+      excitation_total = 0.0
+      print('canon inputs: ', canon_input_points)
+      for point in canon_input_points:
+          valence_total += float(point['VALENCE'])
+          excitation_total += float(point['EXCITATION'])
+          #if not point['VALENCE'] in knn_voting_dict.keys():
+          #    knn_voting_dict['VALENCE'][point['VALENCE']] = 0
+          #knn_voting_dict['VALENCE'][point['VALENCE']] += 1
+          #if not point['EXCITATION'] in knn_voting_dict.keys():
+          #    knn_voting_dict['EXCITATION'][point['EXCITATION']] = 0
+          #knn_voting_dict['EXCITATION'][point['EXCITATION']] += 1
+      controller_x = (float(valence_total) / float(knn_k)) / 9.0 # valence
+      controller_y = (float(excitation_total) / float(knn_k)) / 9.0 # excitation 
+      last_window_end_idx = len(nwb_eeg_ts_raw) # PICK IT UP ^^^^^^^^^^ 
+      controller_input_str = 'SET MAIN ' + str(controller_x)[1:3] + ' ' + str(controller_y)[1:3] + '\n'
+      print(controller_input_str)
+      controller_fifo.write(controller_input_str)
+      controller_fifo.flush()
+      brain_input_count += 1
+      # REAL ACTUAL TODO THIS COULD BE WAY PERFECT if you are voting right
+#+END_SRC
+*** terminal
+#+BEGIN_SRC python
+  controller_fifo.close()
+#+END_SRC

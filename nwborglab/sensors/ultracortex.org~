@@ -1,0 +1,26 @@
+* data type
+  EEG
+* channel count
+  8
+* electrode config
+** 1
+** 2
+** 3
+** 4
+** 5
+** 6
+** 7
+** 8  
+* programmatic
+** initial
+#+BEGIN_SRC python  
+#+END_SRC       
+** loop
+#+BEGIN_SRC python  
+#+END_SRC       
+** terminal
+#+BEGIN_SRC python  
+#+END_SRC       
+* other notes
+  - medium size
+  - it is so cool, it is very cool, oh yeah
