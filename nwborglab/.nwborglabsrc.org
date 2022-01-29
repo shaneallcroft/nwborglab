@@ -69,4 +69,102 @@ def main():
    this is where you can specify which lab your experiment is affiliated with
 ** EXPERIMENT RESULTS
    This is where you can record the big picture results of your experiment
-  
+* SESSION_SKELETONS SRC
+#+org_literal  
+** EXAMPLE SESSION SKELE 1
+   This is an example of a session skeleton. An actual session skeleton one should have a descriptive name in place of "* EXAMPLE SESSION SKELE 1"
+   the experiment is a contrived example to give an idea of what kinds of information can be used in each of the fields
+*** SUBJECT ROLES    
+**** PIANO PLAYER
+***** STIMULI
+     - The subject will be prompted to improvise a minute long piano part using only a specific set of piano keys (length four)
+     - Metronome at 80 bpm
+***** SENSORS
+      ultracortex
+***** SURVEY
+****** INITIAL      
+******* Piano Developmental
+#+survey	
+     What age were you when you first started playing piano? If you've never played the piano just leave the answer blank.
+******* Piano Broad Experience
+#+survey	
+    Briefly outline your experience playing the piano. Feel free to specify what kind of genres you feel most comfortable playing etc.
+****** TERMINAL
+******* Subjective Performance
+#+survey
+    On a scale from 1-10 how do you thnk you did?
+	
+***** OTHER NOTES
+      The piano player will be seated facing away from the listener. 
+**** LISTENER
+***** STIMULI
+      Listening to a 60 second improvised piece performed by the 'PIANO PLAYER' subject
+***** SENSORS
+      ultracortex
+***** SURVEY
+****** INITIAL      
+******* Music preference
+#+survey	
+     What kind of music do you listen to? Feel free to specify artist/genre
+******* Weekly Music Consumption
+#+survey	
+     How many hours a week do you listen to music?
+****** TERMINAL
+******* Subjective Performance
+#+survey
+    On a scale from 1-10 how do you think the piano player subject did?
+	
+******* Subjective Performance
+#+survey
+    if you had to guess, how long would you say the piano player subject has been playing piano
+	
+***** OTHER NOTES
+** EXAMPLE SESSION SKELE 2
+   This is an example of a session skeleton. An actual session skeleton one should have a descriptive name in place of "* EXAMPLE SESSION SKELE 2"
+   the experiment is a contrived example to give an idea of what kinds of information can be used in each of the fields
+*** SUBJECT ROLES    
+**** SAXAPHONE PLAYER
+***** STIMULI
+     - The subject will be prompted to improvise a minute long saxaphone part using only a specific set of saxaphone keys (length four)
+     - Metronome at 80 bpm
+***** SENSORS
+      ultracortex
+***** SURVEY
+****** INITIAL      
+******* Saxaphone Developmental
+#+survey	
+     What age were you when you first started playing saxaphone? If you've never played the saxaphone just leave the answer blank.
+******* Saxaphone Broad Experience
+#+survey	
+    Briefly outline your experience playing the saxaphone. Feel free to specify what kind of genres you feel most comfortable playing etc.
+****** TERMINAL
+******* Subjective Performance
+#+survey
+    On a scale from 1-10 how do you thnk you did?
+	
+***** OTHER NOTES
+      The saxaphone player will be seated facing away from the listener. 
+**** LISTENER
+***** STIMULI
+      Listening to a 60 second improvised piece performed by the 'SAXAPHONE PLAYER' subject
+***** SENSORS
+      ultracortex
+***** SURVEY
+****** INITIAL      
+******* Music preference
+#+survey	
+     What kind of music do you listen to? Feel free to specify artist/genre
+******* Weekly Music Consumption
+#+survey	
+     How many hours a week do you listen to music?
+****** TERMINAL
+******* Subjective Performance
+#+survey
+    On a scale from 1-10 how do you think the saxaphone player subject did?
+	
+******* Subjective Performance
+#+survey
+    if you had to guess, how long would you say the saxaphone player subject has been playing saxaphone
+	
+***** OTHER NOTES
+    The listener will be wearing a sleep mask blindfold.

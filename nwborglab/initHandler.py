@@ -69,6 +69,9 @@ def init(args):
     with open('overview.org', 'w') as f:
         f.write(str(nwborglabsrc_sapofto['OVERVIEW SRC'].getValue()))
         nwborglabsrc_sapofto.pop('OVERVIEW SRC')
+    with open('session_skeletons.org', 'w') as f:
+        f.write(str(nwborglabsrc_sapofto['SESSION_SKELETONS SRC'].getValue()))
+        nwborglabsrc_sapofto.pop('SESSION_SKELETONS SRC')
     with open('.nwborglab.org', 'w') as f:
         f.write(str(nwborglabsrc_sapofto.castOrgLiteral()))
     # TODO make .nwb.org in each subdirectory

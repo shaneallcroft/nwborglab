@@ -15,7 +15,7 @@ def createSubject(args, subject_id=None):
         
 
     
-    if not os.path.isfile('.nwb.org'):
+    if not os.path.isfile('.nwborglab.org'):
         print('NWBORG ERROR: not in the uppermost folder of an nwborg project.')
         return
 
