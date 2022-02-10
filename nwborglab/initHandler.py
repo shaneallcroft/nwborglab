@@ -3,6 +3,9 @@ import os
 from os.path import expanduser
 from datetime import datetime as dt
 from SAPOFTO import SAPOFTO
+from pynwb import NWBHDF5IO
+
+
 
 def init(args):
     # print ascii art
@@ -45,6 +48,25 @@ def init(args):
 
 
        		   		   v0.0.1""")
+    
+    if len(args) > 0:
+        print('INIT ERROR: attempting nwborglab initialization from file')
+        if not os.path.isfile(args[0]):
+            print(args[0] + ' no such file :(')
+        if not args[0].endswith('.nwb'):
+            print('INIT ERROR: specified file is not an nwb file')
+            return
+        io = NWBHDF5IO(args[0], 'r')
+        nwbfile_in = io.read()
+
+        print(nwbfile_in.get_scratch('nwborglab_sensors'))
+        sensors_sapofto = SAPOFTO.SAPOFTO('sensors',nwbfile_in.get_scratch('nwborglab_sensors'), case_sensitive=True)
+        overview_sapofto = SAPOFTO.SAPOFTO('OVERVIEW',nwbfile_in.get_scratch('nwborglab_overview'))
+        session_skeleton_sapofto = SAPOFTO.SAPOFTO('SKELETONS',nwbfile_in.get_scratch('nwborglab_session_skeleton'))
+        #session_skeleton_sapofto = nwbfile_in.get_scratch('nwborglab_session_source_code')
+        
+        SAPOFTO.recursiveFolderWrite(os.getcwd(), safe_mode=True)
+        return
     
     tab = '    '
     half_tab = '  '
