@@ -10,4 +10,3 @@ def applySurvey(survey_sapofto):
         survey_sapofto.removeTag('survey')
     return survey_sapofto
             
-        

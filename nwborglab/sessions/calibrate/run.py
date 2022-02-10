@@ -179,7 +179,7 @@ def main():
         sam_valence = input('where do you fall on the top row scale? left to right 1-9, top row (valence)...')
         session_knn_points[video_link]['VALENCE'] = sam_valence
         sam_excitation = input('where do you fall on the middle row scale? left to right 1-9 middle row (excitation)...')
-        session_knn_points[video_link]['EXCITATION'] = sam_excitation
+        session_knn_points[video_link]['EXCITATION'] = sam_excitation1
         nwbfile.add_unit(id=1,VALENCE=int(sam_valence),EXCITATION=int(sam_excitation),VIDEOURL=video_link,DEAPEMOTIONTAG=deapemotiontag)
         # Pick it up, what needs to happen is nwb_eeg_ts needs to be iterated over with half windows of 500 (2 seconds)
         # With features being captured at resolutions of 1 window or 4 seconds 1000 points

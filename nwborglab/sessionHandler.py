@@ -175,10 +175,6 @@ def generateSessionCode(args):
     session_code.appendLine('\n' + tab * 2 + 'print("recording complete")')#, e)')
     # Apply survey questions
     #
-    for role in skeleton['SUBJECT ROLES'].keys():
-        if 'SURVEY' in skeleton['SUBJECT ROLES'][role].keys():
-            session_code.appendLine('\n'+tab*2+'print("Survey for ' + role + ':")')
-            session_code.appendLine('\n'+tab*2+'skeleton["SUBJECT ROLES"]["'+role+'"]["SURVEY"]["TERMINAL"].applySurvey()')
 
     
     # ACTUAL TODO FIX THE DEBUG ^^^^^^
@@ -192,6 +188,10 @@ def generateSessionCode(args):
         initialization_code = config['code']['terminal'].lineList(with_tab=True, tab_displacement=-1)
         session_code.append(('\n'+(tab*2)) + ('\n'+(tab*2)).join(initialization_code))
 
+    for role in skeleton['SUBJECT ROLES'].keys():
+        if 'SURVEY' in skeleton['SUBJECT ROLES'][role].keys():
+            session_code.appendLine('\n'+tab*2+'print("Survey for ' + role + ':")')
+            session_code.appendLine('\n'+tab*2+'skeleton["SUBJECT ROLES"]["'+role+'"]["SURVEY"]["TERMINAL"].applySurvey()')
 
 
 
